@@ -7,6 +7,10 @@
     border-radius: 0;
 }
 
+.form-row{
+    margin: auto;
+}
+
 form{
     border: 2px;
     border-style: solid;
@@ -18,7 +22,11 @@ body{
     display: flex;
     align-items: center;
     height: 100vh;
-    background-color: red;
+    background-image: url("../../../images/registrer.png");
+}
+
+h1{
+    text-align: center;
 }
 
 /*.form-control:focus {
