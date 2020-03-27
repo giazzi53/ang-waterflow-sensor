@@ -12,6 +12,8 @@ form{
     border-style: solid;
     background-color: aqua;
     margin: auto;
+    padding: 30px;
+    text-align: center;
 }
 
 body{
@@ -19,6 +21,10 @@ body{
     align-items: center;
     height: 100vh;
     background-image: url("../../../images/registrer-login.png");
+}
+
+.form-group{
+    padding: 10px;
 }
 
 h1{
