@@ -7,10 +7,6 @@
     border-radius: 0;
 }
 
-.form-row{
-    margin: auto;
-}
-
 form{
     border: 2px;
     border-style: solid;
@@ -22,7 +18,7 @@ body{
     display: flex;
     align-items: center;
     height: 100vh;
-    background-image: url("../../../images/registrer.png");
+    background-image: url("../../../images/registrer-login.png");
 }
 
 h1{
