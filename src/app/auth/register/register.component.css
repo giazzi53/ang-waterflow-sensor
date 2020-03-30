@@ -1,4 +1,4 @@
-.form-control {
+/*.form-control {
     background: transparent;
     border: none;
     border-bottom: 1px solid #000000;
@@ -16,12 +16,12 @@ form{
     text-align: center;
 }
 
-body{
+/*body{
     display: flex;
     align-items: center;
     height: 100vh;
     background-image: url("../../../images/registrer-login.png");
-}
+}/
 
 .form-group{
     padding: 10px;

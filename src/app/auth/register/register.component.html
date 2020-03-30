@@ -1,9 +1,34 @@
-<body>
-    <form class="col-md-8">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+      <mat-card-header>
+          <mat-card-title>WACOP</mat-card-title>
+      </mat-card-header>
+
+      <mat-horizontal-stepper linear="true" #stepper>
+        <mat-step [stepControl]="">
+            <form [formGroup]="">
+                <ng-template matStepLabel>Dados Pessoais</ng-template>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Nome" formControlName="firstName" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Sobrenome</mat-label>
+                    <input matInput placeholder="Sobrenome" formControlName="lastName" required>
+                </mat-form-field>
+            </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card>
+</div>
+
+  
+  <!--<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" class="col-md-8">
         <h1>WACOP</h1>
         <div class="form-row">
           <div class="col-md-6">
-            <div class="md-form form-group">
+            <div class="md-form form-gro
+            up">
                 <label for="user">Usuário:</label>
                 <input type="text" class="form-control">
             </div>
@@ -59,5 +84,4 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-md">Cadastrar</button>
-    </form>
-</body>
+    </form>-->
