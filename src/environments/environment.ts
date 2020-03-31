@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  personBaseUrl: 'localhost:8080',
+  //personBaseUrl: 'https://java-cif-person-api.herokuapp.com',
 };
 
 /*
