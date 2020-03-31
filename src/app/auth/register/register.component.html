@@ -5,78 +5,37 @@
       </mat-card-header>
 
       <mat-horizontal-stepper linear="true" #stepper>
-        <mat-step [stepControl]="userForm">
-            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-                <mat-form-field>
-                    <mat-label>Nome</mat-label>
-                    <input matInput placeholder="Nome" formControlName="name" required>
-                </mat-form-field>
-            </form>
-        </mat-step>
+          <mat-step [stepControl]="userForm">
+              <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                  <mat-form-field>
+                      <mat-label>Usuário</mat-label>
+                      <input matInput formControlName="username" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Senha</mat-label>
+                      <input matInput type="password" formControlName="password" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Nome</mat-label>
+                      <input matInput placeholder="Nome" formControlName="name" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Email</mat-label>
+                      <input matInput type="email" formControlName="email" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Sexo</mat-label>
+                      <input matInput formControlName="sex" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Telefone</mat-label>
+                      <input matInput formControlName="phoneNumber" required>
+                  </mat-form-field>
+                  <button mat-button matStepperNext mat-stroked-button type="submit" color="primary" class="btn-block">
+                      Concluir
+                  </button>
+              </form>
+          </mat-step>
       </mat-horizontal-stepper>
-    </mat-card>
+  </mat-card>
 </div>
-
-  
-  <!--<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" class="col-md-8">
-        <h1>WACOP</h1>
-        <div class="form-row">
-          <div class="col-md-6">
-            <div class="md-form form-gro
-            up">
-                <label for="user">Usuário:</label>
-                <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="md-form form-group">
-                <label for="password">Senha:</label>
-                <input type="password" class="form-control">
-            </div>
-          </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6">
-              <div class="md-form form-group">
-                  <label for="email">E-mail:</label>
-                  <input type="email" class="form-control">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="md-form form-group">
-                  <label for="phone">Telefone:</label>
-                  <input type="text" class="form-control">
-              </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6">
-                <div class="md-form">
-                <label for="email">Região do Brasil:</label>
-                    <br>
-                    <select>
-                        <option>Norte</option>
-                        <option>Nordeste</option>
-                        <option>Centro-Oeste</option>
-                        <option>Sudeste</option>
-                        <option>Sul</option>
-                    </select>
-              </div>
-            </div>
-            <div class="form-check col-md-6">
-                <label for="sex">Sexo:</label>
-                <br>
-                Masculino<input type="radio" name="sex" class="radio-inline col-md-1" value="M">
-                Feminino<input type="radio" name="sex" class="radio-inline col-md-1" value="F">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-              <div class="md-form form-group">
-                  <label for="address">Endereço:</label>
-                  <input type="text" class="form-control">
-              </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-md">Cadastrar</button>
-    </form>-->
