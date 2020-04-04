@@ -1,20 +1,20 @@
-<body>
-    <form class="col-md-8">
-        <h1>WACOP</h1>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="col-md-7">
+      <mat-card-header>
+          <mat-card-title>WACOP - Water Consumption Platfrom</mat-card-title>
+      </mat-card-header>
+      <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
-          <div class="col-md-6">
-            <div class="md-form form-group">
-                <label for="user">Usuário:</label>
-                <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="md-form form-group">
-                <label for="password">Senha:</label>
-                <input type="password" class="form-control">
-            </div>
-          </div>
+            <mat-form-field class="col-md-6">
+                <input matInput placeholder="Usuário" id="login" #login="ngModel" name="login" [(ngModel)]="person.username" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-6">
+                <input minlength="6" maxlength="8" matInput placeholder="Senha" type="password" id="password" #password="ngModel" name="password" [(ngModel)]="person.password" required>
+            </mat-form-field>
         </div>
-        <button type="submit" class="btn btn-primary btn-md">Entrar</button>
-    </form>
-</body>
+          <button *ngIf="!loading" [disabled]="!loginForm.form.valid" mat-stroked-button type="submit" color="warn" class="btn-block">Entrar</button>
+          <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner>
+          <!-- <button *ngIf="!loading" mat-stroked-button color="warn" (click)="toRegister()" class="btn-block register">Registrar-se</button> -->
+      </form>
+  </mat-card>
+</div>
