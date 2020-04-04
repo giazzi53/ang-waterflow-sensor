@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { RegisterService } from 'src/app/service/register.service';
 import { Person } from 'src/app/interfaces/person';
+import { Gender } from 'src/app/interfaces/gender';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import { Person } from 'src/app/interfaces/person';
 export class RegisterComponent implements OnInit {
 
   userForm: FormGroup;
-  states: any = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'TO'];
+  regions: any = ['Norte', 'Nordeste', 'Centro-oeste', 'Sudeste', 'Sul']
   genders: Gender[] = [
     { value: 'F', viewValue: 'Feminino' },
     { value: 'M', viewValue: 'Masculino' },
@@ -28,11 +29,13 @@ export class RegisterComponent implements OnInit {
   createUser() {
     return new FormGroup({
       'username': new FormControl(this.person.username, [Validators.required]),
+      'password': new FormControl(this.person.password, [Validators.required]),
       'name': new FormControl(this.person.name, [Validators.required]),
       'email': new FormControl(this.person.email, [Validators.required, Validators.email]),
-      'password': new FormControl(this.person.password, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]),
       'sex': new FormControl(this.person.sex, [Validators.required]),
+      'region': new FormControl(this.person.region, [Validators.required]),
       'phoneNumber': new FormControl(this.person.phoneNumber, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+      'street': new FormControl(this.person.street, [Validators.required]),
     });
   }
 
@@ -45,9 +48,4 @@ export class RegisterComponent implements OnInit {
     
   }
 
-}
-
-interface Gender {
-  value: string;
-  viewValue: string;
 }

@@ -1,10 +1,12 @@
 export interface Person {
     id: string;
     username: string;
+    password: string;
     name: string;
     email: string;
-    password: string;
     sex: string;
+    region: string;
     phoneNumber: string;
+    street: string;
     active: Boolean;
 }

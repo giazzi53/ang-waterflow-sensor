@@ -25,6 +25,10 @@ body {
 
 .login-wrapper {
     height: 100%;
+    background-image: url("src/assets/register-login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 17px;
 }
 
 .positronx {
@@ -32,7 +36,7 @@ body {
     color: #ffffff;
 }
 
-.box {
+/*.box {
     position: relative;
     top: 0;
     opacity: 1;
@@ -70,7 +74,7 @@ body {
     -webkit-transform: scale(.95);
     -ms-transform: scale(.95);
     z-index: -1;
-}
+}*/
 
 .login-wrapper .example-form {
     min-width: 100%;
@@ -83,6 +87,10 @@ body {
     width: 35%;
 }
 
+.btn-block {
+    float: right;
+}
+
 .login-wrapper mat-card-header {
     text-align: center;
     width: 100%;
@@ -93,10 +101,19 @@ body {
 .login-wrapper mat-card-header mat-card-title {
     font-size: 30px;
     margin: 0;
+    padding: 20px;
+}
+
+mat-card-header {
+    font-family: Rockwell;
 }
 
 .login-wrapper .mat-card {
     padding: 40px 70px 50px;
+}
+
+mat-card {
+    background-color: #e6f3ff;
 }
 
 .login-wrapper .mat-stroked-button {
@@ -133,23 +150,19 @@ body {
 
 mat-form-field {
     display: block !important;
+    padding: 10px;
 }
 
 .btn-done {
     background-color: rgb(239, 239, 255) !important;
 }
 
-.btn-clean {
+/*.btn-clean {
     float: left !important;
-}
+}*/
 
 .btn-cancel {
     margin-right: 49%;
-}
-
-.cepNF {
-    font-size: 10px;
-    color: red;
 }
 
 @media(max-width: 768px) {

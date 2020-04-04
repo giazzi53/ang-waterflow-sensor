@@ -31,7 +31,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatStepperModule } from '@angular/material/stepper';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 
@@ -73,7 +72,6 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatStepperModule,
     MatMenuModule,
     LayoutModule,
     MatCardModule
