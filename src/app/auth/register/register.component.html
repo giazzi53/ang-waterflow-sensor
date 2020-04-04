@@ -36,8 +36,8 @@
                 <mat-form-field class="col-md-6">
                     <mat-label>Região do Brasil</mat-label>
                     <mat-select formControlName="region" required>
-                    <mat-option *ngFor="let region of regions" [value]="region">
-                    {{region}}
+                    <mat-option *ngFor="let region of regions" [value]="region.value">
+                    {{region.viewValue}}
                     </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -49,7 +49,7 @@
                 </mat-form-field>
                 <mat-form-field class="col-md-6">
                     <mat-label>Endereço</mat-label>
-                    <input matInput formControlName="street" required>
+                    <input matInput formControlName="address" required>
                 </mat-form-field>
             </div>
             <button mat-button mat-stroked-button type="submit" color="primary" class="btn-block">

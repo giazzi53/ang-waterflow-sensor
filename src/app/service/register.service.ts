@@ -14,6 +14,7 @@ export class RegisterService {
   
     register(person: Person): Observable<Person> {
       const url = `${environment.personBaseUrl}/register`;
+      console.log('Requisição para cadastro: ' + JSON.stringify(person));
       return this.http.post<Person>(url,person);
     }
 }

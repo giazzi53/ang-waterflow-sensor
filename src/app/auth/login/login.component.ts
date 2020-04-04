@@ -31,12 +31,11 @@ export class LoginComponent implements OnInit {
           res => {
             this.loading = false;
             // this.sessionService.saveUserLoggedId(res.id, res.firstName);
-            console.log('successful login!');
             this.router.navigate(['home']);
-          }, error => {
+          }, errorObject => {
             this.loading = false;
-            console.log(error);
-            this.snackbar.open('Login ou senha incorretos!', 'Dismiss', {
+            console.log(errorObject.error);
+            this.snackbar.open(errorObject.error, 'Dismiss', {
               duration: 2000,
               panelClass: ['error-snackbar']
             });

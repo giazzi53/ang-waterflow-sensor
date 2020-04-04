@@ -1,5 +1,4 @@
 export interface Person {
-    id: string;
     username: string;
     password: string;
     name: string;
@@ -7,6 +6,6 @@ export interface Person {
     sex: string;
     region: string;
     phoneNumber: string;
-    street: string;
+    address: string;
     active: Boolean;
 }

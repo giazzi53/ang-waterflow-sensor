@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { RegisterService } from 'src/app/service/register.service';
 import { Person } from 'src/app/interfaces/person';
 import { Gender } from 'src/app/interfaces/gender';
+import { Region } from 'src/app/interfaces/region';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -13,14 +16,20 @@ import { Gender } from 'src/app/interfaces/gender';
 export class RegisterComponent implements OnInit {
 
   userForm: FormGroup;
-  regions: any = ['Norte', 'Nordeste', 'Centro-oeste', 'Sudeste', 'Sul']
+  regions: Region[] = [
+    { value: 'NORTH', viewValue: 'Norte' },
+    { value: 'NORTHEAST', viewValue: 'Nordeste' },
+    { value: 'CENTER_EAST', viewValue: 'Centro-oeste' },
+    { value: 'SOUTHEAST', viewValue: 'Sudeste' },
+    { value: 'SOUTH', viewValue: 'Sul' }
+  ];
   genders: Gender[] = [
-    { value: 'F', viewValue: 'Feminino' },
-    { value: 'M', viewValue: 'Masculino' },
-    { value: 'O', viewValue: 'Não informar' }
+    { value: 'FEMALE', viewValue: 'Feminino' },
+    { value: 'MALE', viewValue: 'Masculino' },
+    { value: 'UNINFORMED', viewValue: 'Não informar' }
   ];
 
-  constructor(private registerService: RegisterService) { 
+  constructor(private registerService: RegisterService, private router: Router, private snackbar: MatSnackBar) { 
     this.userForm = this.createUser();
   }
 
@@ -35,13 +44,26 @@ export class RegisterComponent implements OnInit {
       'sex': new FormControl(this.person.sex, [Validators.required]),
       'region': new FormControl(this.person.region, [Validators.required]),
       'phoneNumber': new FormControl(this.person.phoneNumber, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      'street': new FormControl(this.person.street, [Validators.required]),
+      'address': new FormControl(this.person.address, [Validators.required]),
     });
   }
 
   onSubmit() {
     this.person = this.userForm.value;
-    this.registerService.register(this.person);
+    this.registerService.register(this.person).subscribe(
+      res => {
+        // this.loading = false;
+        // this.sessionService.saveUserLoggedId(res.id, res.firstName);
+        // this.router.navigate(['home']);
+        console.log(1111)
+      }, errorObject => {
+        // this.loading = false;
+        console.log(errorObject.error);
+        this.snackbar.open(errorObject.error, 'Dismiss', {
+          duration: 2000,
+          panelClass: ['error-snackbar']
+        });
+      });
   }
 
   ngOnInit(): void {

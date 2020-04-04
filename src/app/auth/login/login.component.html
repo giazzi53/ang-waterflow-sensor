@@ -9,7 +9,7 @@
                 <input matInput placeholder="Usuário" id="login" #login="ngModel" name="login" [(ngModel)]="person.username" required>
             </mat-form-field>
             <mat-form-field class="col-md-6">
-                <input minlength="6" maxlength="8" matInput placeholder="Senha" type="password" id="password" #password="ngModel" name="password" [(ngModel)]="person.password" required>
+                <input matInput placeholder="Senha" type="password" id="password" #password="ngModel" name="password" [(ngModel)]="person.password" required>
             </mat-form-field>
         </div>
           <button *ngIf="!loading" [disabled]="!loginForm.form.valid" mat-stroked-button type="submit" color="warn" class="btn-block">Entrar</button>

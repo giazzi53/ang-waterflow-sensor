@@ -13,7 +13,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/v1/login`;
+    const url = `${environment.personBaseUrl}/login`;
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -25,6 +25,7 @@ export class LoginService {
         'password': password
       })
     };
+    console.log("Requisição para login: " + headers.get('username'), headers.get('password'));
     return this.http.get<Person>(url, httpOptions);
   }
 }
