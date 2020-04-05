@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
       res => {
         // this.loading = false;
         // this.sessionService.saveUserLoggedId(res.id, res.firstName);
-        // this.router.navigate(['home']);
+        this.router.navigate(['home']);
         console.log(1111)
       }, errorObject => {
         // this.loading = false;
