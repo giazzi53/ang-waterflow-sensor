@@ -3,6 +3,7 @@ import { Person } from 'src/app/interfaces/person';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from 'src/app/service/login.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   
     @Input() person: Person = <Person>{};
     @Output() id: EventEmitter<string> = new EventEmitter();
-    constructor(private authService: LoginService, private router: Router, private snackbar: MatSnackBar) { }
+    constructor(private authService: LoginService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { }
   
     ngOnInit() {
       // if(this.sessionService.getUserLogged() != null){
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
         .subscribe(
           res => {
             this.loading = false;
-            // this.sessionService.saveUserLoggedId(res.id, res.firstName);
+            // this.sessionService.saveUserLogged(res.username);
+            this.sessionService.saveUserLogged(this.person.username);
             this.router.navigate(['home']);
           }, errorObject => {
             this.loading = false;

@@ -3,33 +3,28 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class SessionService {
-  public userId: string;
-  public name: string;
+  public username: string;
 
   constructor(private route: Router) { }
 
-  getUserLogged() {
-    const userId = localStorage.getItem('user');
-    if (!this.userId) {
-      this.userId = userId;
-    }
-    return this.userId;
-  }
+  // getUserLogged() {
+  //   const userId = localStorage.getItem('user');
+  //   if (!this.userId) {
+  //     this.userId = userId;
+  //   }
+  //   return this.userId;
+  // }
 
-  saveUserLoggedId(userId: string, name?: string) {
-    localStorage.setItem('user', userId);
-    if(name != null){
-      this.name = name;
-      localStorage.setItem('name', name);
-    }
-    this.userId = userId;
+  saveUserLogged(username: string) {
+    this.username = username;
+    localStorage.setItem('username', username);
   }
 
   logoutUser() {
-    localStorage.removeItem('user');
-    localStorage.removeItem('name');
-    this.userId = '';
-    this.name = '';
+    localStorage.removeItem('username');
+    // localStorage.removeItem('name');
+    // this.userId = '';
+    this.username = '';
     this.route.navigate(['']);
   }
 }

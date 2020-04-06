@@ -7,6 +7,7 @@ import { Gender } from 'src/app/interfaces/gender';
 import { Region } from 'src/app/interfaces/region';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
     { value: 'UNINFORMED', viewValue: 'Não informar' }
   ];
 
-  constructor(private registerService: RegisterService, private router: Router, private snackbar: MatSnackBar) { 
+  constructor(private registerService: RegisterService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { 
     this.userForm = this.createUser();
   }
 
@@ -53,7 +54,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.register(this.person).subscribe(
       res => {
         // this.loading = false;
-        // this.sessionService.saveUserLoggedId(res.id, res.firstName);
+        this.sessionService.saveUserLogged(res.username);
         this.router.navigate(['home']);
         console.log(1111)
       }, errorObject => {

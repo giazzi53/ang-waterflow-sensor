@@ -33,6 +33,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
+import { ViewCardComponent } from './view-card/view-card/view-card.component';
+import { SessionService } from './service/session.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { MatCardModule } from '@angular/material/card';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ViewComponent
+    ViewComponent,
+    ViewCardComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,7 @@ import { MatCardModule } from '@angular/material/card';
     LayoutModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
