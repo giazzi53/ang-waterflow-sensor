@@ -1,3 +1,7 @@
-.box {
+.general-wrapper {
     float: left;
+}
+
+.view-cards {
+    padding: 10px;
 }

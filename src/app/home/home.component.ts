@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ViewCardComponent } from '../view-card/view-card/view-card.component';
-import { ViewCardService } from '../service/view-card.service';
+import { HomeService } from '../service/home.service';
 import { Person } from '../interfaces/person';
+import { ViewCard } from '../interfaces/view-card';
+import { Device } from '../interfaces/device';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +11,36 @@ import { Person } from '../interfaces/person';
 })
 export class HomeComponent implements OnInit {
 
-  cards: ViewCardComponent[];
-  a: any;
+  cards: ViewCard[];
+  devices: Device[];
 
-  constructor(private viewCardService: ViewCardService) { 
-    // this.cards = this.getCards();
-    console.log(localStorage.getItem('username'));
-    this.a = this.getCards(localStorage.getItem('username'));
-    console.log(this.a);
+  constructor(private homeService: HomeService) { 
+    this.getCards(localStorage.getItem('username'));
   }
 
   ngOnInit(): void {
   }
 
   getCards(username: string) {
-    return this.viewCardService.getCards(username);
+    this.homeService.getCards(username)
+    .subscribe(
+      res => {
+        this.cards = res;
+      }, errorObject => {
+        console.log(errorObject.error);
+      }
+    );
+  }
+
+  getDevices(username: string) {
+    this.homeService.getDevices(username)
+    .subscribe(
+      res => {
+        this.devices = res;
+      }, errorObject => {
+        console.log(errorObject.error);
+      }
+    );
   }
 
 }

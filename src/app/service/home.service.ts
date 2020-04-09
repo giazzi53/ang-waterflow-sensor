@@ -8,22 +8,29 @@ import { Person } from '../interfaces/person';
   providedIn: 'root'
 })
 
-export class ViewCardService {
+export class HomeService {
 
   constructor(private http: HttpClient) { }
 
   getCards(username: string) : Observable<any> {
     const url = `${environment.personBaseUrl}/getCards`;
-
-    // let headers = new HttpHeaders();
-    // headers.append('Content-Type', 'application/json');
-
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
       })
     };
     console.log("Requisição para recuperar cards das visões: " + httpOptions.headers.get('username'));
+    return this.http.get<any>(url, httpOptions);
+  }
+
+  getDevices(username: string) : Observable<any> {
+    const url = `${environment.personBaseUrl}/getDevices`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'username': username
+      })
+    };
+    console.log("Requisição para recuperar dispositivos: " + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
 }

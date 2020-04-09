@@ -1,10 +1,35 @@
-<div class="views-wrapper">
-    <mat-card class="box">
-        <mat-card-header>
-            <mat-card-title>Minhas visões</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="view-card" *ngFor="let card of cards">a</div>
-        </mat-card-content>
-    </mat-card>
+<div class="general-wrapper">
+    <div class="views-wrapper">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title>Minhas visões de consumo</mat-card-title>
+            </mat-card-header>
+            <div class="view-cards" *ngFor="let card of cards">
+                <mat-card>
+                    <div class="card-title">
+                        <span>{{ card.title }}</span>
+                    </div>
+                    <div class="card-description">
+                        <span>{{ card.description }}</span>
+                    </div>
+                </mat-card>
+            </div>
+        </mat-card>
+    </div>
+
+    <div class="devices-wrapper">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title>Meus dispositivos</mat-card-title>
+                <!-- <mdb-icon fas icon="plus"></mdb-icon> -->
+            </mat-card-header>
+            <div class="devices" *ngFor="let device of devices">
+                <mat-card>
+                    <div class="card-description">
+                        <span>{{ device.description }}</span>
+                    </div>
+                </mat-card>
+            </div>
+        </mat-card>
+    </div>
 </div>
