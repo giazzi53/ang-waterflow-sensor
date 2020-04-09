@@ -21,9 +21,10 @@
         <mat-card class="box">
             <mat-card-header>
                 <mat-card-title>Meus dispositivos</mat-card-title>
-                <!-- <mdb-icon fas icon="plus"></mdb-icon> -->
+                <span class="material-icons add-icon">add_circle</span>
+                <span class="material-icons remove-icon">remove_circle</span>
             </mat-card-header>
-            <div class="devices" *ngFor="let device of devices">
+            <div class="devices-cards" *ngFor="let device of devices">
                 <mat-card>
                     <div class="card-description">
                         <span>{{ device.description }}</span>

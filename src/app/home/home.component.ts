@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private homeService: HomeService) { 
     this.getCards(localStorage.getItem('username'));
+    this.getDevices(localStorage.getItem('username'));
   }
 
   ngOnInit(): void {

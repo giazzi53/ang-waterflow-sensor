@@ -2,6 +2,22 @@
     float: left;
 }
 
-.view-cards {
+.view-cards, .devices-cards {
     padding: 10px;
+}
+
+.add-icon {
+    color: green;
+}
+
+.remove-icon {
+    color: red;
+}
+
+.devices-wrapper {
+    padding-top: 20px;
+}
+
+.box {
+    background-color: rgb(161, 161, 233);
 }
