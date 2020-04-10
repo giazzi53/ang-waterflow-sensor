@@ -4,19 +4,28 @@
 
 .view-cards, .devices-cards {
     padding: 10px;
-    text-align: center;
+    /* text-align: center; */
 }
 
-.empty-list {
+/* .empty-list {
     text-align: center;
-}
+} */
 
 .view-card, .device-card {
     background-color: #e6f3ff;
 }
 
+/* mat-card-header {
+    text-align: center;
+} */
+
 .add-icon {
     color: green;
+    float: right;
+}
+
+.material-icons {
+    cursor: pointer;
 }
 
 .remove-icon {
@@ -29,6 +38,7 @@
 
 .box {
     background-color: #88c4fb;
+    text-align: center;
 }
 
 .chart-card {
