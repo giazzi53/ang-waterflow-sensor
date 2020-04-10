@@ -33,4 +33,16 @@ export class HomeService {
     console.log("Requisição para recuperar dispositivos: " + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
+
+  getChart(chartId: string, username: string) : Observable<any> {
+    const url = `${environment.personBaseUrl}/getChart`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'chartId': chartId,
+        'username': username
+      })
+    };
+    console.log("Requisição para recuperar dados do gráfico: " + httpOptions.headers.get('chartId') + httpOptions.headers.get('username'));
+    return this.http.get<any>(url, httpOptions);
+  }
 }

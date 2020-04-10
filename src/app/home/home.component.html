@@ -3,9 +3,11 @@
         <mat-card class="box">
             <mat-card-header>
                 <mat-card-title>Minhas visões de consumo</mat-card-title>
+                <span class="material-icons add-icon">add_circle</span>
+                <span class="material-icons remove-icon">remove_circle</span>
             </mat-card-header>
             <div class="view-cards" *ngFor="let card of cards">
-                <mat-card>
+                <mat-card class="view-card">
                     <div class="card-title">
                         <span>{{ card.title }}</span>
                     </div>
@@ -25,7 +27,7 @@
                 <span class="material-icons remove-icon">remove_circle</span>
             </mat-card-header>
             <div class="devices-cards" *ngFor="let device of devices">
-                <mat-card>
+                <mat-card class="device-card">
                     <div class="card-description">
                         <span>{{ device.description }}</span>
                     </div>
@@ -33,4 +35,13 @@
             </div>
         </mat-card>
     </div>
+</div>
+
+<div class="chart">
+    <mat-card class="box chart-card col-md-9">
+        <mat-card-header>
+            <mat-card-title>{{ chart.title }}</mat-card-title>
+            <span>{{ chart.description }}</span>
+        </mat-card-header>
+    </mat-card>
 </div>

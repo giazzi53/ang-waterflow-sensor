@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from 'src/app/service/login.service';
 import { SessionService } from 'src/app/service/session.service';
+import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 
 @Component({
   selector: 'app-login',
@@ -36,11 +37,17 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['home']);
           }, errorObject => {
             this.loading = false;
-            console.log(errorObject.error);
-            this.snackbar.open(errorObject.error, 'Dismiss', {
-              duration: 2000,
-              panelClass: ['error-snackbar']
-            });
+            if(errorObject.error instanceof ProgressEvent){
+              this.snackbar.open("Erro ao realizar operação", 'Dismiss', {
+                duration: 3000,
+                panelClass: ['error-snackbar']
+              });
+            } else {
+              this.snackbar.open(errorObject.error, 'Dismiss', {
+                duration: 3000,
+                panelClass: ['error-snackbar']
+              });
+            }        
           }
         );
     }

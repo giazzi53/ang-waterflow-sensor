@@ -4,6 +4,12 @@
 
 .view-cards, .devices-cards {
     padding: 10px;
+    text-align: center;
+}
+
+
+.view-card, .device-card {
+    background-color: #e6f3ff;
 }
 
 .add-icon {
@@ -19,5 +25,9 @@
 }
 
 .box {
-    background-color: rgb(161, 161, 233);
+    background-color: #88c4fb;
+}
+
+.chart-card {
+    float: right;
 }
