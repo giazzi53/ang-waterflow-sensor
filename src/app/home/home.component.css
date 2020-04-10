@@ -7,6 +7,9 @@
     text-align: center;
 }
 
+.empty-list {
+    text-align: center;
+}
 
 .view-card, .device-card {
     background-color: #e6f3ff;

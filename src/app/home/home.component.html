@@ -6,6 +6,9 @@
                 <span class="material-icons add-icon">add_circle</span>
                 <span class="material-icons remove-icon">remove_circle</span>
             </mat-card-header>
+            <div class="empty-list" *ngIf="cards.length == 0">
+                <span>Ainda não há visões criadas!</span>
+            </div>
             <div class="view-cards" *ngFor="let card of cards">
                 <mat-card class="view-card">
                     <div class="card-title">
@@ -26,6 +29,9 @@
                 <span class="material-icons add-icon">add_circle</span>
                 <span class="material-icons remove-icon">remove_circle</span>
             </mat-card-header>
+            <div class="empty-list" *ngIf="devices.length == 0">
+                <span>Ainda não há dispositivos cadastrados!</span>
+            </div>
             <div class="devices-cards" *ngFor="let device of devices">
                 <mat-card class="device-card">
                     <div class="card-description">
