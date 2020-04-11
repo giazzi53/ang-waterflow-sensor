@@ -4,6 +4,7 @@ import { Person } from '../interfaces/person';
 import { ViewCard } from '../interfaces/view-card';
 import { Device } from '../interfaces/device';
 import { Chart } from '../interfaces/chart';
+import * as CanvasJS from '../../assets/canvasjs.min';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +25,34 @@ export class HomeComponent implements OnInit {
     console.log(this.selectedDevice);
   }
 
-  ngOnInit(): void {
-  }
+  //ngOnInit(): void {
+  //}
+
+  ngOnInit() {
+		let chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		exportEnabled: true,
+		title: {
+			text: "Basic Column Chart in Angular"
+		},
+		data: [{
+			type: "column",
+			dataPoints: [
+				{ y: 71, label: "Apple" },
+				{ y: 55, label: "Mango" },
+				{ y: 50, label: "Orange" },
+				{ y: 65, label: "Banana" },
+				{ y: 95, label: "Pineapple" },
+				{ y: 68, label: "Pears" },
+				{ y: 28, label: "Grapes" },
+				{ y: 34, label: "Lychee" },
+				{ y: 14, label: "Jackfruit" }
+			]
+		}]
+	});
+		
+	chart.render();
+    }
 
   getCards(username: string) {
     this.homeService.getCards(username)

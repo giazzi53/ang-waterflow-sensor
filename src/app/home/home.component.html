@@ -11,7 +11,7 @@
                 </div>
                 <div class="view-cards" *ngFor="let card of cards">
                     <mat-card class="view-card">
-                        <span class="material-icons remove-icon">remove_circle</span>
+                        <!-- <span class="material-icons remove-icon">remove_circle</span> -->
                         <div class="card-title">
                             <span>{{ card.title }}</span>
                         </div>
@@ -52,6 +52,7 @@
             <mat-card-header>
                 <mat-card-title *ngIf="chart == null">Ainda não há visões de consumo para gerar gráficos!</mat-card-title>
                 <mat-card-title>{{ chart.title }} - {{ chart.description }}</mat-card-title>
+                <div id="chartContainer" style="width: 100%; height: 400px;"></div>
             </mat-card-header>
         </mat-card>
     </div>
