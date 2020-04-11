@@ -52,9 +52,9 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.person = this.userForm.value;
     this.registerService.register(this.person).subscribe(
-      res => {
+     res => {
         // this.loading = false;
-        this.sessionService.saveUserLogged(res.username);
+        this.sessionService.saveUserLogged(this.person.username);
         this.router.navigate(['home']);
         console.log(1111)
       }, errorObject => {
