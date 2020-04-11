@@ -1,12 +1,12 @@
 <div class="general-wrapper">
     <div class="views-wrapper">
         <mat-card class="box">
-            <span class="material-icons add-icon" matTooltip="Info about the action">add_circle</span>
+            <span class="material-icons add-icon">add_circle</span>
             <mat-card-header>
                 <mat-card-title>Minhas visões de consumo</mat-card-title>
             </mat-card-header>
-            <div class="empty-list" *ngIf="cards.length == 0">
-                <span>Ainda não há visões criadas!</span>
+            <div *ngIf="cards.length == 0">
+                <span>Ainda não há visões de consumo criadas!</span>
             </div>
             <div class="view-cards" *ngFor="let card of cards">
                 <mat-card class="view-card">
@@ -24,17 +24,16 @@
 
     <div class="devices-wrapper">
         <mat-card class="box">
-            <span class="material-icons add-icon">add_circle</span>
+            <span class="material-icons help-icon">help</span>
             <mat-card-header>
                 <mat-card-title>Meus dispositivos</mat-card-title>
             </mat-card-header>
-            <div class="empty-list" *ngIf="devices.length == 0">
+            <div *ngIf="devices.length == 0">
                 <span>Ainda não há dispositivos cadastrados!</span>
             </div>
-            <div class="devices-cards" *ngFor="let device of devices">
+            <div class="device-cards" *ngFor="let device of devices">
                 <mat-card class="device-card">
-                    <span class="material-icons remove-icon">remove_circle</span>
-                    <div class="card-description">
+                    <div class="device-description">
                         <span>{{ device.description }}</span>
                     </div>
                 </mat-card>
@@ -43,11 +42,11 @@
     </div>
 </div>
 
-<div class="chart">
-    <mat-card class="box chart-card col-md-9">
+<div class="chart-wrapper">
+    <mat-card class="box chart-card col-md-8">
         <mat-card-header>
-            <mat-card-title>{{ chart.title }}</mat-card-title>
-            <span>{{ chart.description }}</span>
+            <mat-card-title *ngIf="chart == null">Ainda não há visões de consumo para gerar gráficos!</mat-card-title>
+            <mat-card-title>{{ chart.title }} - {{ chart.description }}</mat-card-title>
         </mat-card-header>
     </mat-card>
 </div>

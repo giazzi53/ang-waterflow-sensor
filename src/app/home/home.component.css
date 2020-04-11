@@ -2,30 +2,30 @@
     float: left;
 }
 
-.view-cards, .devices-cards {
+.view-cards, .device-cards {
     padding: 10px;
-    /* text-align: center; */
 }
 
-/* .empty-list {
-    text-align: center;
-} */
+.view-card:hover, .device-card:hover {
+    background-color: rgb(206, 204, 204);
+    cursor: pointer;
+}
 
 .view-card, .device-card {
     background-color: #e6f3ff;
-}
+} 
 
-/* mat-card-header {
-    text-align: center;
-} */
+.help-icon {
+    color: rgb(92, 94, 92);
+}
 
 .add-icon {
     color: green;
-    float: right;
 }
 
 .material-icons {
     cursor: pointer;
+    float: right;
 }
 
 .remove-icon {

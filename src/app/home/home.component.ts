@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getCards(username)
     .subscribe(
       res => {
+        console.log('Retorno da requisição de recuperar cards das visões: ' + JSON.stringify(res));
         this.cards = res;
       }, errorObject => {
         console.log(errorObject.error);
@@ -40,7 +41,9 @@ export class HomeComponent implements OnInit {
     this.homeService.getDevices(username)
     .subscribe(
       res => {
+        console.log('Retorno da requisição de recuperar dispositivos: ' + JSON.stringify(res));
         this.devices = res;
+        console.log(this.devices);
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -51,6 +54,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getChart(chartId, username)
     .subscribe(
       res => {
+        console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
         this.chart = res;
         console.log(this.chart);
       }, errorObject => {
