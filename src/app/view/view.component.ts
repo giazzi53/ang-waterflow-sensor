@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
+  chartType: string;
+  deviceId: string;
+  description: string;
+  initialDate: string;
+  finalDate: string;
+
   constructor() { }
 
   ngOnInit(): void {

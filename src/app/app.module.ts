@@ -34,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { SessionService } from './service/session.service';
+import { DeviceComponent } from './device/device.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SessionService } from './service/session.service';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ViewComponent
+    ViewComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule,

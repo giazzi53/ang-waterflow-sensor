@@ -45,4 +45,15 @@ export class HomeService {
     console.log("Requisição para recuperar dados do gráfico: " + httpOptions.headers.get('chartId') + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
+
+  openDevice(deviceId: string) : Observable<any> {
+    const url = `${environment.personBaseUrl}/getDeviceDetails`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'deviceId': deviceId,
+      })
+    };
+    console.log("Requisição para abrir dispositivo: " + httpOptions.headers.get('deviceId'));
+    return this.http.get<any>(url, httpOptions);
+  }
 }

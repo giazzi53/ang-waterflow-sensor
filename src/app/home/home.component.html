@@ -32,7 +32,7 @@
                 <span>Ainda não há dispositivos cadastrados!</span>
             </div>
             <div class="device-cards" *ngFor="let device of devices">
-                <mat-card class="device-card">
+                <mat-card class="device-card" (click)="openDevice(device.deviceId)">
                     <div class="device-description">
                         <span>{{ device.description }}</span>
                     </div>
@@ -47,6 +47,15 @@
         <mat-card-header>
             <mat-card-title *ngIf="chart == null">Ainda não há visões de consumo para gerar gráficos!</mat-card-title>
             <mat-card-title>{{ chart.title }} - {{ chart.description }}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>
+
+<div class="device-wrapper">
+    <mat-card class="box device-box col-md-8">
+        <mat-card-header>
+            <mat-card-title *ngIf="selectedDevice == null">Selecione um dispositivo para ver detalhes</mat-card-title>
+            <mat-card-title>{{ selectedDevice.description }}</mat-card-title>
         </mat-card-header>
     </mat-card>
 </div>

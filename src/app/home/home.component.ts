@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   cards: ViewCard[];
   devices: Device[];
   chart: Chart;
+  selectedDevice: Device;
 
   constructor(private homeService: HomeService) { 
     this.getCards(localStorage.getItem('username'));
@@ -63,4 +64,16 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  openDevice(deviceId: string) {
+    this.homeService.openDevice(deviceId)
+    .subscribe(
+      res => {
+        console.log('Retorno da requisição de abrir dispositivo: ' + JSON.stringify(res));
+        this.selectedDevice = res;
+        console.log(this.selectedDevice);
+      }, errorObject => {
+        console.log(errorObject.error);
+      }
+    );
+  }
 }
