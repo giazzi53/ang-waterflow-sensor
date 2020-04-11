@@ -1,24 +1,26 @@
-<div class="general-wrapper">
+<div class="general-card-wrapper">
     <div class="views-wrapper">
         <mat-card class="box">
             <span class="material-icons add-icon">add_circle</span>
             <mat-card-header>
                 <mat-card-title>Minhas visões de consumo</mat-card-title>
             </mat-card-header>
-            <div *ngIf="cards.length == 0">
-                <span>Ainda não há visões de consumo criadas!</span>
-            </div>
-            <div class="view-cards" *ngFor="let card of cards">
-                <mat-card class="view-card">
-                    <span class="material-icons remove-icon">remove_circle</span>
-                    <div class="card-title">
-                        <span>{{ card.title }}</span>
-                    </div>
-                    <div class="card-description">
-                        <span>{{ card.description }}</span>
-                    </div>
-                </mat-card>
-            </div>
+            <mat-card-content>
+                <div *ngIf="cards.length == 0">
+                    <span>Ainda não há visões de consumo criadas!</span>
+                </div>
+                <div class="view-cards" *ngFor="let card of cards">
+                    <mat-card class="view-card">
+                        <span class="material-icons remove-icon">remove_circle</span>
+                        <div class="card-title">
+                            <span>{{ card.title }}</span>
+                        </div>
+                        <div class="card-description">
+                            <span>{{ card.description }}</span>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card-content>
         </mat-card>
     </div>
 
@@ -28,34 +30,47 @@
             <mat-card-header>
                 <mat-card-title>Meus dispositivos</mat-card-title>
             </mat-card-header>
-            <div *ngIf="devices.length == 0">
-                <span>Ainda não há dispositivos cadastrados!</span>
-            </div>
-            <div class="device-cards" *ngFor="let device of devices">
-                <mat-card class="device-card" (click)="openDevice(device.deviceId)">
-                    <div class="device-description">
-                        <span>{{ device.description }}</span>
-                    </div>
-                </mat-card>
-            </div>
+            <mat-card-content>
+                <div *ngIf="devices.length == 0">
+                    <span>Ainda não há dispositivos cadastrados!</span>
+                </div>
+                <div class="device-cards" *ngFor="let device of devices">
+                    <mat-card class="device-card" (click)="openDevice(device.deviceId)">
+                        <div class="device-description">
+                            <span>{{ device.description }}</span>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card-content>
         </mat-card>
     </div>
 </div>
 
-<div class="chart-wrapper">
-    <mat-card class="box chart-card col-md-8">
-        <mat-card-header>
-            <mat-card-title *ngIf="chart == null">Ainda não há visões de consumo para gerar gráficos!</mat-card-title>
-            <mat-card-title>{{ chart.title }} - {{ chart.description }}</mat-card-title>
-        </mat-card-header>
-    </mat-card>
-</div>
-
-<div class="device-wrapper">
-    <mat-card class="box device-box col-md-8">
-        <mat-card-header>
-            <mat-card-title *ngIf="selectedDevice == null">Selecione um dispositivo para ver detalhes</mat-card-title>
-            <mat-card-title>{{ selectedDevice.description }}</mat-card-title>
-        </mat-card-header>
-    </mat-card>
+<div class="general-detail-wrapper">
+    <div class="chart-wrapper">
+        <mat-card class="box chart-card col-md-8">
+            <mat-card-header>
+                <mat-card-title *ngIf="chart == null">Ainda não há visões de consumo para gerar gráficos!</mat-card-title>
+                <mat-card-title>{{ chart.title }} - {{ chart.description }}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    
+    <div class="device-wrapper">
+        <mat-card class="box device-box col-md-8">
+            <mat-card-header>
+                <mat-card-title *ngIf="selectedDevice == null">Selecione um dispositivo para ver detalhes</mat-card-title>
+                <mat-card-title>{{ selectedDevice.description }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="device-details">
+                    <span>Água consumida: {{ selectedDevice.flowRate }} L</span>
+                    <br>
+                    <span>Período da análise: {{ selectedDevice.timestamp }}</span>
+                    <br>
+                    <span>ID do dispositivo: {{ selectedDevice.deviceId }}</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

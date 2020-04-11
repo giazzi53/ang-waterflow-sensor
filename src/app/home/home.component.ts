@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.getCards(localStorage.getItem('username'));
     this.getDevices(localStorage.getItem('username'));
     this.getChart('1', localStorage.getItem('username'));
+    console.log(this.selectedDevice);
   }
 
   ngOnInit(): void {

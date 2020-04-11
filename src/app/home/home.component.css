@@ -1,4 +1,4 @@
-.general-wrapper {
+.general-card-wrapper {
     float: left;
 }
 
@@ -34,6 +34,10 @@
 
 .devices-wrapper {
     padding-top: 20px;
+}
+
+.device-wrapper {
+    padding-top: 80px;
 }
 
 .box {
