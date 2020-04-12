@@ -7,13 +7,13 @@
                 <mat-card-title>Meus dispositivos</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <div *ngIf="devices.length == 0">
+                <div *ngIf="deviceCards.length == 0">
                     <span>Ainda não há dispositivos cadastrados!</span>
                 </div>
-                <div class="device-cards" *ngFor="let device of devices">
-                    <mat-card class="device-card" (click)="openDevice(device.deviceId)">
+                <div class="device-cards" *ngFor="let deviceCard of deviceCards">
+                    <mat-card class="device-card" (click)="getDeviceDetails(deviceCard.deviceId)">
                         <div class="device-description">
-                            <span>{{ device.description }}</span>
+                            <span>{{ deviceCard.description }}</span>
                         </div>
                     </mat-card>
                 </div>
@@ -28,17 +28,17 @@
                 <mat-card-title>Minhas visões de consumo</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <div *ngIf="cards.length == 0">
+                <div *ngIf="chartViewCards.length == 0">
                     <span>Ainda não há visões de consumo criadas!</span>
                 </div>
-                <div class="view-cards" *ngFor="let card of cards">
-                    <mat-card class="view-card" (click)="openChart()">
+                <div class="view-cards" *ngFor="let chartViewCard of chartViewCards">
+                    <mat-card class="view-card" (click)="openChart(chartViewCard)">
                         <!-- <span class="material-icons remove-icon">remove_circle</span> -->
                         <div class="card-title">
-                            <span>{{ card.title }}</span>
+                            <span>{{ chartViewCard.title }}</span>
                         </div>
                         <div class="card-description">
-                            <span>{{ card.description }}</span>
+                            <span>{{ chartViewCard.description }}</span>
                         </div>
                     </mat-card>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="card-message" *ngIf="chartOpen == false">
                     Selecione uma visão de consumo para ver gráficos!
                 </div>
-                <div class="card-message" *ngIf="chartCard == null">
+                <div class="card-message">
                     Ainda não há visões de consumo para gerar gráficos!
                 </div>
                 <div id="chartContainer" style="width: 100%; height: 300px;"></div>

@@ -1,16 +1,15 @@
-import { Chart } from 'src/app/interfaces/chart';
-import * as CanvasJS from '../../../assets/canvasjs.min';
+import { ChartView } from 'src/app/interfaces/chartView';
+import * as CanvasJS from '../../assets/canvasjs.min';
 
 export class ColumnChart {
     
     constructor () {
-        //this.createColumnChart(this.chart);
     }
 
     ngOnInit(){
     }
 
-    createColumnChart(chart: Chart) {
+    createColumnChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             exportEnabled: true,

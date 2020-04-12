@@ -1,5 +1,5 @@
-import { Chart } from 'src/app/interfaces/chart';
-import * as CanvasJS from '../../../assets/canvasjs.min';
+import { ChartView } from 'src/app/interfaces/chartView';
+import * as CanvasJS from '../../assets/canvasjs.min';
 
 export class SplineChart {
     
@@ -9,7 +9,7 @@ export class SplineChart {
     ngOnInit(){
     }
 
-    createSplineChart(chart: Chart) {
+    createSplineChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             backgroundColor: "transparent",
