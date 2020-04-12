@@ -13,53 +13,30 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 })
 export class HomeComponent implements OnInit {
 
+  loading = false;
+  chartOpen = false;
   cards: ViewCard[];
   devices: Device[];
   chart: Chart;
   selectedDevice: Device;
 
-  constructor(private homeService: HomeService) { 
+  constructor(private homeService: HomeService) {
     this.getCards(localStorage.getItem('username'));
     this.getDevices(localStorage.getItem('username'));
     this.getChart('1', localStorage.getItem('username'));
-    console.log(this.selectedDevice);
   }
 
-  //ngOnInit(): void {
-  //}
-
-  ngOnInit() {
-		let chart = new CanvasJS.Chart("chartContainer", {
-		animationEnabled: true,
-		exportEnabled: true,
-		title: {
-			text: "Basic Column Chart in Angular"
-		},
-		data: [{
-			type: "column",
-			dataPoints: [
-				{ y: 71, label: "Apple" },
-				{ y: 55, label: "Mango" },
-				{ y: 50, label: "Orange" },
-				{ y: 65, label: "Banana" },
-				{ y: 95, label: "Pineapple" },
-				{ y: 68, label: "Pears" },
-				{ y: 28, label: "Grapes" },
-				{ y: 34, label: "Lychee" },
-				{ y: 14, label: "Jackfruit" }
-			]
-		}]
-	});
-		
-	chart.render();
-    }
+  ngOnInit(): void {
+  }
 
   getCards(username: string) {
+    this.loading = true;
     this.homeService.getCards(username)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar cards das visões: ' + JSON.stringify(res));
         this.cards = res;
+        this.loading = false;
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -103,5 +80,32 @@ export class HomeComponent implements OnInit {
         console.log(errorObject.error);
       }
     );
+  }
+
+  openChart() {
+		let graph = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		exportEnabled: true,
+		title: {
+			text: this.chart.description
+		},
+		data: [{
+			type: "column",
+			dataPoints: [
+				{ y: 71, label: "Apple" },
+				{ y: 55, label: "Mango" },
+				{ y: 50, label: "Orange" },
+				{ y: 65, label: "Banana" },
+				{ y: 95, label: "Pineapple" },
+				{ y: 68, label: "Pears" },
+				{ y: 28, label: "Grapes" },
+				{ y: 34, label: "Lychee" },
+				{ y: 14, label: "Jackfruit" }
+			]
+		}]
+  	});
+    
+    this.chartOpen = true;
+    graph.render();
   }
 }
