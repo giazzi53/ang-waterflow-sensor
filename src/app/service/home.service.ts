@@ -6,7 +6,7 @@ import { Person } from '../interfaces/person';
 import { Chart } from '../interfaces/chart';
 import { ColumnChart } from '../view/charts/column-chart';
 import { PieChart } from '../view/charts/pie-chart';
-
+import { SplineChart } from '../view/charts/spline-chart';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +69,9 @@ export class HomeService {
     } else if(chart.type == 'pie') {
         let pieChart = new PieChart();
         createdChart = pieChart.createPieChart(chart);
+    } else if(chart.type == 'spline') {
+      let splineChart = new SplineChart();
+      createdChart = splineChart.createSplineChart(chart);
     }
     return createdChart;
   }

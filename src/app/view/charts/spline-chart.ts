@@ -3,17 +3,14 @@ import * as CanvasJS from '../../../assets/canvasjs.min';
 
 export class SplineChart {
     
-    chart: Chart;
-
     constructor () {
-        this.chart = this.createSplineChart(this.chart);
     }
 
     ngOnInit(){
     }
 
     createSplineChart(chart: Chart) {
-        let createdChart = new CanvasJS.Chart("orders-spline-chart", {
+        let createdChart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             backgroundColor: "transparent",
             theme: "light2",
@@ -50,6 +47,8 @@ export class SplineChart {
             }]
         });
 
+        createdChart.render();
+        
         return createdChart;
     }
 }
