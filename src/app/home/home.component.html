@@ -1,5 +1,26 @@
 <!-- <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner> -->
 <div class="general-card-wrapper" *ngIf="!loading">
+    <div class="devices-wrapper">
+        <mat-card class="box">
+            <span class="material-icons help-icon">help</span>
+            <mat-card-header>
+                <mat-card-title>Meus dispositivos</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngIf="devices.length == 0">
+                    <span>Ainda não há dispositivos cadastrados!</span>
+                </div>
+                <div class="device-cards" *ngFor="let device of devices">
+                    <mat-card class="device-card" (click)="openDevice(device.deviceId)">
+                        <div class="device-description">
+                            <span>{{ device.description }}</span>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
     <div class="views-wrapper">
         <mat-card class="box">
             <span class="material-icons add-icon">add_circle</span>
@@ -24,47 +45,9 @@
             </mat-card-content>
         </mat-card>
     </div>
-
-    <div class="devices-wrapper">
-        <mat-card class="box">
-            <span class="material-icons help-icon">help</span>
-            <mat-card-header>
-                <mat-card-title>Meus dispositivos</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div *ngIf="devices.length == 0">
-                    <span>Ainda não há dispositivos cadastrados!</span>
-                </div>
-                <div class="device-cards" *ngFor="let device of devices">
-                    <mat-card class="device-card" (click)="openDevice(device.deviceId)">
-                        <div class="device-description">
-                            <span>{{ device.description }}</span>
-                        </div>
-                    </mat-card>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
 </div>
 
-<div class="general-detail-wrapper" *ngIf="!loading">
-    <div class="chart-wrapper">
-        <mat-card class="box chart-card col-md-8">
-            <mat-card-header>
-                <mat-card-title>Visão de consumo</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="card-message" *ngIf="chart && chartOpen == false">
-                    Selecione uma visão de consumo para ver gráficos!
-                </div>
-                <div class="card-message" *ngIf="chart == null">
-                    Ainda não há visões de consumo para gerar gráficos!
-                </div>
-                <div id="chartContainer" style="width: 100%; height: 300px;"></div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    
+<div class="general-detail-wrapper" *ngIf="!loading">    
     <div class="device-wrapper">
         <mat-card class="box device-box col-md-8">
             <mat-card-header>
@@ -83,6 +66,23 @@
                     <br>
                     <span>ID do dispositivo: {{ selectedDevice.deviceId }}</span>
                 </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="chart-wrapper">
+        <mat-card class="box chart-card col-md-8">
+            <mat-card-header>
+                <mat-card-title>Visão de consumo</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card-message" *ngIf="chartOpen == false">
+                    Selecione uma visão de consumo para ver gráficos!
+                </div>
+                <div class="card-message" *ngIf="chart == null">
+                    Ainda não há visões de consumo para gerar gráficos!
+                </div>
+                <div id="chartContainer" style="width: 100%; height: 300px;"></div>
             </mat-card-content>
         </mat-card>
     </div>

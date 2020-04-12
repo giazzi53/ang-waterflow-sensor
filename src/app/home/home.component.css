@@ -32,12 +32,12 @@
     color: red;
 }
 
-.devices-wrapper {
+.views-wrapper {
     padding-top: 20px;
 }
 
-.device-wrapper {
-    padding-top: 32%;
+.chart-wrapper {
+    padding-top: 13%;
 }
 
 .box {
