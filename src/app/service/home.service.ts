@@ -3,6 +3,10 @@ import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Person } from '../interfaces/person';
+import { Chart } from '../interfaces/chart';
+import { ColumnChart } from '../view/charts/column-chart';
+import { PieChart } from '../view/charts/pie-chart';
+
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +60,17 @@ export class HomeService {
     console.log("Requisição para abrir dispositivo: " + httpOptions.headers.get('deviceId'));
     return this.http.get<any>(url, httpOptions);
   }
+
+  createChart(chart: Chart){
+    let createdChart;
+    if(chart.type == 'column') {
+        let columnChart = new ColumnChart();
+        createdChart = columnChart.createColumnChart(chart);
+    } else if(chart.type == 'pie') {
+        let pieChart = new PieChart();
+        createdChart = pieChart.createPieChart(chart);
+    }
+    return createdChart;
+  }
+
 }

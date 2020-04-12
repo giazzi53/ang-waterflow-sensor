@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as CanvasJS from '../../assets/canvasjs.min';
+import { Chart } from '../interfaces/chart';
+import { ViewService } from '../service/view.service';
 
 @Component({
   selector: 'app-view',
@@ -8,19 +9,21 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 })
 export class ViewComponent implements OnInit {
 
-  chartType: string;
-  deviceId: string;
-  description: string;
-  initialDate: string;
-  finalDate: string;
+  chart: Chart;
 
-  constructor() { }
+  constructor(private viewService: ViewService) {
+	  //this.createChart(this.chart);
+   }
 
   ngOnInit(){
     
   }
 
-  /*ngOnInit() {
+  /*createChart(chart: Chart) {
+	this.viewService.createChart(chart);
+  }
+
+  ngOnInit() {
 		let chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
 		exportEnabled: true,
