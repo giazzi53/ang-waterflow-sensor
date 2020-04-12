@@ -12,6 +12,7 @@ export class PieChart {
     createPieChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
+            backgroundColor: "transparent",
             theme: "light2",
             legend: {
                 fontSize: 14
