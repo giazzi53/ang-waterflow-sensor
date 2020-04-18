@@ -19,7 +19,7 @@ export class PieChart {
             },
             toolTip: {
                 borderThickness: 0,
-                content: "<span style='\"'color: {color};'\"'>{name}</span>: ${y} (#percent%)",
+                content: "<span style='\"'color: {color};'\"'>{name}</span>: {y}L (#percent%)",
                 cornerRadius: 0
             },
             data: [{       
@@ -30,12 +30,13 @@ export class PieChart {
                 showInLegend: true,
                 startAngle:  90,
                 type: "pie",
-                dataPoints: [
-                    {  y: 6289855, name:"Product A", indexLabel: "Product A - 41%", legendText: "Product A", exploded: true },
-                    {  y: 2761400, name:"Product B", indexLabel: "Product B - 18%", legendText: "Product B" },
-                    {  y: 3681866, name:"Product C", indexLabel: "Product C - 24%", legendText: "Product C", color: "#8064a1" },
-                    {  y: 2607989, name:"Product D", indexLabel: "Product D - 17%", legendText: "Product D" }
-                ]
+                dataPoints: chart.dataPoints
+                // dataPoints: [
+                //     {  y: 6289855, name:"Product A", indexLabel: "Product A - 41%", legendText: "Product A", exploded: true },
+                //     {  y: 2761400, name:"Product B", indexLabel: "Product B - 18%", legendText: "Product B" },
+                //     {  y: 3681866, name:"Product C", indexLabel: "Product C - 24%", legendText: "Product C", color: "#8064a1" },
+                //     {  y: 2607989, name:"Product D", indexLabel: "Product D - 17%", legendText: "Product D" }
+                // ]
             }]
         });
 

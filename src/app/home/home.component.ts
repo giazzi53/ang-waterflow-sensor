@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from '../service/home.service';
 import { ChartView } from '../interfaces/chartView';
 import { Device } from '../interfaces/device';
+import { FixedChartViewCard } from '../interfaces/fixedChartViewCard';
 
 @Component({
   selector: 'app-home',
@@ -12,21 +13,22 @@ export class HomeComponent implements OnInit {
 
   loading = false;
   chartOpen = false;
-  chartViewCards: ChartView[];
+  username: string = localStorage.getItem('username');
+  chartViewCards: FixedChartViewCard[];
   deviceCards: Device[];
   chartView: ChartView;
   selectedDevice: Device;
 
   constructor(private homeService: HomeService) {
-    this.getChartViewCards(localStorage.getItem('username'));
-    this.getDeviceCards(localStorage.getItem('username'));
+    this.getFixedChartViewCards();
+    this.getDeviceCards(this.username);
   }
 
   ngOnInit(): void {
   }
 
-  getChartViewCards(username: string) {
-    this.homeService.getChartViewCards(username)
+  getFixedChartViewCards() {
+    this.homeService.getFixedChartViewCards()
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar cards dos gráficos das visões: ' + JSON.stringify(res));
@@ -64,8 +66,16 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChart(chart: ChartView) {
-    this.homeService.createChart(chart);
-    this.chartOpen = true;
+  openChart(id: string) {
+    this.homeService.getChartView(id, this.username)
+    .subscribe(
+      res => {
+        console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
+        this.homeService.openChart(res);
+        this.chartOpen = true;
+      }, errorObject => {
+        console.log(errorObject.error);
+      }
+    );
   }
 }

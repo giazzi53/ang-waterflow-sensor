@@ -6,6 +6,7 @@ import { ChartView } from '../interfaces/chartView';
 import { ColumnChart } from '../chartViews/column-chart';
 import { PieChart } from '../chartViews/pie-chart';
 import { SplineChart } from '../chartViews/spline-chart';
+import { LineChart } from '../chartViews/line-chart';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,10 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  getChartViewCards(username: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/getChartViewCards`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'username': username
-      })
-    };
-    console.log("Requisição para recuperar cards dos gráficos das visões recebida. Usuário: " + httpOptions.headers.get('username'));
-    return this.http.get<any>(url, httpOptions);
+  getFixedChartViewCards() : Observable<any> {
+    const url = `${environment.personBaseUrl}/getFixedChartViewCards`;
+    console.log("Requisição para recuperar cards dos gráficos das visões recebida");
+    return this.http.get<any>(url);
   }
 
   getDeviceCards(username: string) : Observable<any> {
@@ -48,11 +44,26 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  createChart(chart: ChartView){
+  getChartView(id: string, username: string){
+    const url = `${environment.personBaseUrl}/getChartView`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'chartId': id,
+        'username': username
+      })
+    };
+    console.log("Requisição para recuperar gráfico. Id: " + httpOptions.headers.get('chartId'), ". Usuário: " + httpOptions.headers.get('username'));
+    return this.http.get<any>(url, httpOptions);
+  }
+
+  openChart(chart: ChartView){
     let createdChart;
     if(chart.type == 'column') {
         let columnChart = new ColumnChart();
         createdChart = columnChart.createColumnChart(chart);
+    } else if(chart.type == 'line') {
+      let lineChart = new LineChart();
+      createdChart = lineChart.createLineChart(chart);
     } else if(chart.type == 'pie') {
         let pieChart = new PieChart();
         createdChart = pieChart.createPieChart(chart);
