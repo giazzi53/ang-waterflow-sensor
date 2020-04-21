@@ -45,15 +45,18 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getChartView(id: string, username: string){
+  getChartView(type: string, title: string, username: string){
     const url = `${environment.personBaseUrl}/getChartView`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'chartId': id,
+        'type': type,
+        'title': title,
         'username': username
       })
     };
-    console.log("Requisição para recuperar gráfico. Id: " + httpOptions.headers.get('chartId'), ". Usuário: " + httpOptions.headers.get('username'));
+    console.log("Requisição para recuperar gráfico. Type: " + httpOptions.headers.get('type') +
+    ". Title: " + httpOptions.headers.get('title'),
+     ". Usuário: " + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
 

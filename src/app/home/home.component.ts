@@ -67,8 +67,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChart(id: string) {
-    this.homeService.getChartView(id, this.username)
+  openChart(type: string, title: string) {
+    this.homeService.getChartView(type, title, this.username)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));

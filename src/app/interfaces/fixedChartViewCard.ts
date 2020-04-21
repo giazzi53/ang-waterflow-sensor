@@ -1,5 +1,5 @@
 export interface FixedChartViewCard {
-  description: string;
+  title: string;
   type: string;
-  chartId: string;
+  // chartId: string;
 }

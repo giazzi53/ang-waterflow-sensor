@@ -36,7 +36,7 @@
                 </div>
                 <div *ngIf="deviceCards.length != 0">
                     <div class="view-cards" *ngFor="let chartViewCard of chartViewCards">
-                        <mat-card class="view-card" (click)="openChart(chartViewCard.chartId)">
+                        <mat-card class="view-card" (click)="openChart(chartViewCard.type, chartViewCard.title)">
                             <!-- <span class="material-icons remove-icon">remove_circle</span> -->
                             <div class="card-title">
                                 <span>{{ chartViewCard.title }}</span>
