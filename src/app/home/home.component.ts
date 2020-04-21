@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   chartOpen = false;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
-  deviceCards: Device[];
+  //deviceCards: Device[];
+  deviceCards: string[];
   chartView: ChartView;
   selectedDevice: Device;
 
@@ -53,8 +54,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getDeviceDetails(deviceId: string) {
-    this.homeService.getDeviceDetails(deviceId)
+  getDeviceDetails(deviceDescription: string) {
+    this.homeService.getDeviceDetails(this.username, deviceDescription)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar detalhes do dispositivo: ' + JSON.stringify(res));

@@ -33,14 +33,15 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getDeviceDetails(deviceId: string) : Observable<any> {
+  getDeviceDetails(username: string, deviceDescription: string) : Observable<any> {
     const url = `${environment.personBaseUrl}/getDeviceDetails`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'deviceId': deviceId,
+        'username': username,
+        'description': deviceDescription
       })
     };
-    console.log("Requisição para recuperar detalhes do dispositivo. DeviceId:" + httpOptions.headers.get('deviceId'));
+    console.log("Requisição para recuperar detalhes do dispositivo. Usuário: " + httpOptions.headers.get('username') +  ". Description:" + httpOptions.headers.get('description'));
     return this.http.get<any>(url, httpOptions);
   }
 

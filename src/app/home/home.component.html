@@ -11,9 +11,9 @@
                     <span>Ainda não há dispositivos cadastrados!</span>
                 </div>
                 <div class="device-cards" *ngFor="let deviceCard of deviceCards">
-                    <mat-card class="device-card" (click)="getDeviceDetails(deviceCard.deviceId)">
+                    <mat-card class="device-card" (click)="getDeviceDetails(deviceCard)">
                         <div class="device-description">
-                            <span>{{ deviceCard.description }}</span>
+                            <span>{{ deviceCard }}</span>
                         </div>
                     </mat-card>
                 </div>
@@ -56,7 +56,7 @@
     <div class="device-wrapper">
         <mat-card class="box device-box col-md-8">
             <mat-card-header>
-                <mat-card-title>Detalhes do dispositivo</mat-card-title>
+                <mat-card-title>Detalhes do dispositivo - Consumo total</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <div class="card-message" *ngIf="selectedDevice == null">
@@ -67,8 +67,8 @@
                     <br>
                     <span>Água consumida: {{ selectedDevice.flowRate }} L</span>
                     <br>
-                    <span>Período da análise: {{ selectedDevice.timestamp }}</span>
-                    <br>
+                    <!-- <span>Período da análise: {{ selectedDevice.timestamp }}</span>
+                    <br> -->
                     <span>ID do dispositivo: {{ selectedDevice.deviceId }}</span>
                 </div>
             </mat-card-content>
