@@ -52,7 +52,7 @@
                     <input matInput formControlName="address" required>
                 </mat-form-field>
             </div>
-            <button mat-button mat-stroked-button type="submit" color="primary" class="btn-block">
+            <button mat-button mat-raised-button [disabled]="!userForm.valid" type="submit" color="primary" class="btn-block col-md-2">
             Cadastrar
             </button>
           </form>
