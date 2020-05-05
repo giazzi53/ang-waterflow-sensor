@@ -57,6 +57,10 @@
         <mat-card class="box device-box col-md-8">
             <mat-card-header>
                 <mat-card-title>Detalhes do dispositivo - Consumo total</mat-card-title>
+                <button (click)="toLogin()" type="button" class="btn btn-dark logout">
+                    Sair
+                    <mat-icon class="exit-icon">exit_to_app</mat-icon>
+                </button>
             </mat-card-header>
             <mat-card-content>
                 <div class="card-message" *ngIf="selectedDevice == null">

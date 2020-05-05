@@ -52,3 +52,11 @@
 .device-box {
     float: right;
 }
+
+.logout {
+    margin-left: 48%;
+}
+
+.exit-icon {
+    margin-left: 0.3em;
+}

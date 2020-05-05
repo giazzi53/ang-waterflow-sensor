@@ -3,6 +3,7 @@ import { HomeService } from '../service/home.service';
 import { ChartView } from '../interfaces/chartView';
 import { Device } from '../interfaces/device';
 import { FixedChartViewCard } from '../interfaces/fixedChartViewCard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   chartView: ChartView;
   selectedDevice: Device;
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private router: Router) {
     this.getFixedChartViewCards();
     this.getDeviceCards(this.username);
   }
@@ -78,5 +79,9 @@ export class HomeComponent implements OnInit {
         console.log(errorObject.error);
       }
     );
+  }
+
+  toLogin() {
+    this.router.navigateByUrl('/');
   }
 }
