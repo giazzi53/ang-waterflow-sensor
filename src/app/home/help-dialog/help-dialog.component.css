@@ -1,0 +1,8 @@
+::ng-deep.mat-dialog-container {
+    background-color: #23272b;
+    color: white;
+}
+
+ol {
+ margin-left: -5%;
+}

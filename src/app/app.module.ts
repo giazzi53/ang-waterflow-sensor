@@ -33,13 +33,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { SessionService } from './service/session.service';
+import { HelpDialogComponent } from './home/help-dialog/help-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HelpDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { SessionService } from './service/session.service';
     MatProgressSpinnerModule,
     MatMenuModule,
     LayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [SessionService],
   bootstrap: [AppComponent]

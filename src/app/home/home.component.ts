@@ -4,6 +4,8 @@ import { ChartView } from '../interfaces/chartView';
 import { Device } from '../interfaces/device';
 import { FixedChartViewCard } from '../interfaces/fixedChartViewCard';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +23,7 @@ export class HomeComponent implements OnInit {
   chartView: ChartView;
   selectedDevice: Device;
 
-  constructor(private homeService: HomeService, private router: Router) {
+  constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
     this.getFixedChartViewCards();
     this.getDeviceCards(this.username);
   }
@@ -86,6 +88,17 @@ export class HomeComponent implements OnInit {
   //   return "{background-color: 'red'}";
   //   // }
   // }
+
+  openHelp(){
+    this.dialog.open(HelpDialogComponent, {
+      width: '35%'
+    })
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   // this.animal = result;
+    // });
+  }
 
   toLogin() {
     this.router.navigateByUrl('/');
