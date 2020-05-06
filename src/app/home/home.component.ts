@@ -81,6 +81,12 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  // setColor(deviceDecription: string){
+  //   // if(this.selectedDevice.description == deviceDecription){
+  //   return "{background-color: 'red'}";
+  //   // }
+  // }
+
   toLogin() {
     this.router.navigateByUrl('/');
   }

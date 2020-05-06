@@ -11,6 +11,7 @@
                     <span>Ainda não há dispositivos cadastrados!</span>
                 </div>
                 <div class="device-cards" *ngFor="let deviceCard of deviceCards">
+                    <!-- <mat-card class="device-card" [ngStyle]="setColor(deviceCard)" (click)="getDeviceDetails(deviceCard)"> -->
                     <mat-card class="device-card" (click)="getDeviceDetails(deviceCard)">
                         <div class="device-description">
                             <span>{{ deviceCard }}</span>
@@ -67,13 +68,13 @@
                     Selecione um dispositivo para ver detalhes!
                 </div>
                 <div class="device-details">
-                    <span>Descrição do dispositivo: {{ selectedDevice.description }}</span>
-                    <br>
-                    <span>Água consumida: {{ selectedDevice.flowRate }} L</span>
-                    <br>
+                    <span class="device-detail">Descrição do dispositivo: {{ selectedDevice.description }}</span>
+                    <!-- <br> -->
+                    <span class="device-detail">Água consumida: {{ selectedDevice.flowRate }} L</span>
+                    <!-- <br> -->
                     <!-- <span>Período da análise: {{ selectedDevice.timestamp }}</span>
                     <br> -->
-                    <span>ID do dispositivo: {{ selectedDevice.deviceId }}</span>
+                    <span class="device-detail">ID do dispositivo: {{ selectedDevice.deviceId }}</span>
                 </div>
             </mat-card-content>
         </mat-card>

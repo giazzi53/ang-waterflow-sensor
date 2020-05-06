@@ -6,10 +6,18 @@
     padding: 10px;
 }
 
+.device-detail {
+    padding: 1em;
+}
+
 .view-card:hover, .device-card:hover {
     background-color: rgb(206, 204, 204);
     cursor: pointer;
 }
+
+/* .view-card:active, .device-card:active {
+    background-color: green;
+} */
 
 .view-card, .device-card {
     background-color: #e6f3ff;

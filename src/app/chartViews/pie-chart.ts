@@ -12,6 +12,9 @@ export class PieChart {
     createPieChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
+            title: {
+                text: chart.title
+            },
             backgroundColor: "transparent",
             theme: "light2",
             legend: {
@@ -19,7 +22,7 @@ export class PieChart {
             },
             toolTip: {
                 borderThickness: 0,
-                content: "<span style='\"'color: {color};'\"'>{name}</span>: {y}L (#percent%)",
+                content: "<span style='\"'color: {color};'\"'>{name}</span>: {y} L (#percent%)",
                 cornerRadius: 0
             },
             data: [{       

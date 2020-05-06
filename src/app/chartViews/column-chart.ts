@@ -28,6 +28,7 @@ export class ColumnChart {
             },
             toolTip: {
                 borderThickness: 0,
+                content: "<span style='\"'color: {color};'\"'>{label}</span>: {y} L",
                 cornerRadius: 0
             },
             data: [{
