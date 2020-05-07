@@ -15,6 +15,16 @@
     cursor: pointer;
 }
 
+.page-header {
+    background-color: rgb(130, 171, 248);
+    display: flex;
+    padding: 1em;
+}
+
+.page-header h1{
+    margin-bottom: 0;
+}
+
 /* .view-card:active, .device-card:active {
     background-color: green;
 } */
@@ -62,7 +72,10 @@
 }
 
 .logout {
-    margin-left: 48%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1em;
 }
 
 .exit-icon {

@@ -16,6 +16,17 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
+  getUserData(username: string) {
+    const url = `${environment.personBaseUrl}/getUserData`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'username': username
+      })
+    };
+    console.log("Requisição para recuperar dados do usuário: " + httpOptions.headers.get('username'));
+    return this.http.get<any>(url, httpOptions);
+  }
+
   getFixedChartViewCards() : Observable<any> {
     const url = `${environment.personBaseUrl}/getFixedChartViewCards`;
     console.log("Requisição para recuperar cards dos gráficos das visões recebida");

@@ -1,4 +1,11 @@
 <!-- <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner> -->
+<div class="page-header">
+    <h1>Dados de consumo de água de {{ person.name }}</h1>
+    <button (click)="toLogin()" type="button" class="btn btn-dark logout">
+        Sair
+        <mat-icon class="exit-icon">exit_to_app</mat-icon>
+    </button>
+</div>
 <div class="general-card-wrapper" *ngIf="!loading">
     <div class="devices-wrapper">
         <mat-card class="box">
@@ -42,9 +49,9 @@
                             <div class="card-title">
                                 <span>{{ chartViewCard.title }}</span>
                             </div>
-                            <div class="card-description">
+                            <!-- <div class="card-description">
                                 <span>{{ chartViewCard.description }}</span>
-                            </div>
+                            </div> -->
                         </mat-card>
                     </div>
                 </div>
@@ -58,10 +65,6 @@
         <mat-card class="box device-box col-md-8">
             <mat-card-header>
                 <mat-card-title>Detalhes do dispositivo - Consumo total</mat-card-title>
-                <button (click)="toLogin()" type="button" class="btn btn-dark logout">
-                    Sair
-                    <mat-icon class="exit-icon">exit_to_app</mat-icon>
-                </button>
             </mat-card-header>
             <mat-card-content>
                 <div class="card-message" *ngIf="selectedDevice == null">

@@ -6,6 +6,7 @@ import { FixedChartViewCard } from '../interfaces/fixedChartViewCard';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
+import { Person } from '../interfaces/person';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   loading = false;
   chartOpen = false;
+  person: Person;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
   //deviceCards: Device[];
@@ -24,11 +26,24 @@ export class HomeComponent implements OnInit {
   selectedDevice: Device;
 
   constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
+    this.getUserData(this.username)
     this.getFixedChartViewCards();
     this.getDeviceCards(this.username);
   }
 
   ngOnInit(): void {
+  }
+
+  getUserData(username: string){
+    this.homeService.getUserData(username)
+    .subscribe(
+      res => {
+        console.log('Retorno da requisição de recuperar dados do usuário: ' + res);
+        this.person = res;
+      }, errorObject => {
+        console.log(errorObject.error);
+      }
+    );
   }
 
   getFixedChartViewCards() {
