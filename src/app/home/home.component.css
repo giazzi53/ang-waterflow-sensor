@@ -55,7 +55,8 @@
 }
 
 .chart-wrapper {
-    padding-top: 13%;
+   /* margin: 0; */
+   padding: 0;
 }
 
 .box {
@@ -63,9 +64,9 @@
     text-align: center;
 }
 
-.chart-card {
+/* .chart-card {
     float: right;
-}
+} */
 
 .device-box {
     float: right;
@@ -80,4 +81,12 @@
 
 .exit-icon {
     margin-left: 0.3em;
+}
+
+.device-card {
+    /* float: right; */
+}
+
+.general-wrapper {
+    display: flex;
 }

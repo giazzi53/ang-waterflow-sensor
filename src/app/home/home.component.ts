@@ -26,9 +26,10 @@ export class HomeComponent implements OnInit {
   selectedDevice: Device;
 
   constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
-    this.getUserData(this.username)
+    this.getUserData(this.username);
     this.getFixedChartViewCards();
-    this.getDeviceCards(this.username);
+    // this.getDeviceCards(this.username);
+    this.getDeviceDetails(this.username);
   }
 
   ngOnInit(): void {
@@ -52,32 +53,36 @@ export class HomeComponent implements OnInit {
       res => {
         console.log('Retorno da requisição de recuperar cards dos gráficos das visões: ' + JSON.stringify(res));
         this.chartViewCards = res;
+        this.chartViewCards.forEach(chartViewCard => {
+          this.openChart(chartViewCard.chartId);
+        });
+        console.log(this.chartViewCards)
       }, errorObject => {
         console.log(errorObject.error);
       }
     );
   }
 
-  getDeviceCards(username: string) {
-    this.loading = true;
-    this.homeService.getDeviceCards(username)
-    .subscribe(
-      res => {
-        console.log('Retorno da requisição de recuperar cards dos dispositivos: ' + JSON.stringify(res));
-        this.deviceCards = res;
-        this.loading = false;
-      }, errorObject => {
-        console.log(errorObject.error);
-      }
-    );
-  }
+  // getDeviceCards(username: string) {
+  //   this.loading = true;
+  //   this.homeService.getDeviceCards(username)
+  //   .subscribe(
+  //     res => {
+  //       console.log('Retorno da requisição de recuperar cards dos dispositivos: ' + JSON.stringify(res));
+  //       this.deviceCards = res;
+  //       this.loading = false;
+  //     }, errorObject => {
+  //       console.log(errorObject.error);
+  //     }
+  //   );
+  // }
 
-  getDeviceDetails(deviceDescription: string) {
-    this.homeService.getDeviceDetails(this.username, deviceDescription)
+  getDeviceDetails(username: string) {
+    this.homeService.getDeviceDetails(username)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar detalhes do dispositivo: ' + JSON.stringify(res));
-        this.selectedDevice = res;
+        // this.selectedDevice = res;
         console.log(this.selectedDevice);
       }, errorObject => {
         console.log(errorObject.error);
@@ -85,13 +90,26 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChart(type: string, title: string) {
-    this.homeService.getChartView(type, title, this.username)
+  // openChart(type: string, title: string) {
+  //   this.homeService.getChartView(type, title, this.username)
+  //   .subscribe(
+  //     res => {
+  //       console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
+  //       this.homeService.openChart(res);
+  //       this.chartOpen = true;
+  //     }, errorObject => {
+  //       console.log(errorObject.error);
+  //     }
+  //   );
+  // }
+
+  openChart(chartId: string) {
+    this.homeService.getChartView(chartId, this.username)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
         this.homeService.openChart(res);
-        this.chartOpen = true;
+        // this.chartOpen = true;
       }, errorObject => {
         console.log(errorObject.error);
       }

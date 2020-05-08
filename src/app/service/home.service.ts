@@ -44,29 +44,26 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getDeviceDetails(username: string, deviceDescription: string) : Observable<any> {
+  getDeviceDetails(username: string) : Observable<any> {
     const url = `${environment.personBaseUrl}/getDeviceDetails`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'username': username,
-        'description': deviceDescription
-      })
-    };
-    console.log("Requisição para recuperar detalhes do dispositivo. Usuário: " + httpOptions.headers.get('username') +  ". Description:" + httpOptions.headers.get('description'));
-    return this.http.get<any>(url, httpOptions);
-  }
-
-  getChartView(type: string, title: string, username: string){
-    const url = `${environment.personBaseUrl}/getChartView`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'type': type,
-        'title': title,
         'username': username
       })
     };
-    console.log("Requisição para recuperar gráfico. Type: " + httpOptions.headers.get('type') +
-    ". Title: " + httpOptions.headers.get('title'),
+    console.log("Requisição para recuperar detalhes do dispositivo. Usuário: " + httpOptions.headers.get('username'));
+    return this.http.get<any>(url, httpOptions);
+  }
+
+  getChartView(chartId: string, username: string){
+    const url = `${environment.personBaseUrl}/getChartView`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'chartId': chartId,
+        'username': username
+      })
+    };
+    console.log("Requisição para recuperar gráfico. ChartId: " + httpOptions.headers.get('chartId') +
      ". Usuário: " + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
