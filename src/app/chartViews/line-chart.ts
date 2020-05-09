@@ -10,7 +10,7 @@ export class LineChart {
     }
 
     createLineChart(chart: ChartView) {
-        let createdChart = new CanvasJS.Chart("chartContainer", {
+        let createdChart = new CanvasJS.Chart("last-week-chart", {
             theme: "light2", // "light1", "dark1", "dark2"
             animationEnabled: true,
             zoomEnabled: true,

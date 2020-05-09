@@ -20,10 +20,12 @@ export class HomeComponent implements OnInit {
   person: Person;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
-  //deviceCards: Device[];
-  deviceCards: string[];
+  devices: Device[];
+  currentDevice: Device;
+  // chartTitle: string;
   chartView: ChartView;
   selectedDevice: Device;
+  emptyChartData: boolean = false;
 
   constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
@@ -81,8 +83,9 @@ export class HomeComponent implements OnInit {
     this.homeService.getDeviceDetails(username)
     .subscribe(
       res => {
-        console.log('Retorno da requisição de recuperar detalhes do dispositivo: ' + JSON.stringify(res));
-        // this.selectedDevice = res;
+        console.log('Retorno da requisição de recuperar detalhes dos dispositivos: ' + JSON.stringify(res));
+        this.devices = res;
+        this.currentDevice = this.devices[0];
         console.log(this.selectedDevice);
       }, errorObject => {
         console.log(errorObject.error);
@@ -108,7 +111,11 @@ export class HomeComponent implements OnInit {
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
+        // this.chartTitle = res.title;
         this.homeService.openChart(res);
+        if(res.dataPoints.length == 0){
+          this.emptyChartData = true;
+        }
         // this.chartOpen = true;
       }, errorObject => {
         console.log(errorObject.error);

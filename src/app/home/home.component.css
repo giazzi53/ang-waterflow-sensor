@@ -54,7 +54,7 @@
     padding-top: 20px;
 }
 
-.chart-wrapper {
+.mean-weekday-wrapper {
    /* margin: 0; */
    padding: 0;
 }
@@ -89,4 +89,28 @@
 
 .general-wrapper {
     display: flex;
+    margin-top: 1em;
+}
+
+.device-wrapper {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.last-week-wrapper{
+    padding: 0;
+}
+
+.device {
+    /* color:red; */
+    font-family: 'Courier New', Courier, monospace;
+    /* font-size: 15pt; */
+    font-size: 1.25em;
+    /* padding: 0.38em; */
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.device-flowRate {
+    padding-bottom: 0;
 }

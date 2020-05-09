@@ -10,7 +10,7 @@ export class ColumnChart {
     }
 
     createColumnChart(chart: ChartView) {
-        let createdChart = new CanvasJS.Chart("chartContainer", {
+        let createdChart = new CanvasJS.Chart("mean-weekday-chart", {
             animationEnabled: true,
             exportEnabled: true,
             title: {
