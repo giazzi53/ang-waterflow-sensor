@@ -10,7 +10,7 @@ export class PieChart {
     }
 
     createPieChart(chart: ChartView) {
-        let createdChart = new CanvasJS.Chart("chartContainer", {
+        let createdChart = new CanvasJS.Chart("total-devices-chart", {
             animationEnabled: true,
             title: {
                 text: chart.title

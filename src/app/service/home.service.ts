@@ -7,6 +7,7 @@ import { ColumnChart } from '../chartViews/column-chart';
 import { PieChart } from '../chartViews/pie-chart';
 import { SplineChart } from '../chartViews/spline-chart';
 import { LineChart } from '../chartViews/line-chart';
+import { LiveChart } from '../chartViews/live-chart';
 
 @Injectable({
   providedIn: 'root'
@@ -70,18 +71,18 @@ export class HomeService {
 
   openChart(chart: ChartView){
     let createdChart;
-    if(chart.type == 'column') {
+    if(chart.chartId == '3') {
         let columnChart = new ColumnChart();
         createdChart = columnChart.createColumnChart(chart);
-    } else if(chart.type == 'line') {
+    } else if(chart.chartId == '2') {
       let lineChart = new LineChart();
       createdChart = lineChart.createLineChart(chart);
-    } else if(chart.type == 'pie') {
+    } else if(chart.chartId == '1') {
         let pieChart = new PieChart();
         createdChart = pieChart.createPieChart(chart);
-    } else if(chart.type == 'spline') {
-      let splineChart = new SplineChart();
-      createdChart = splineChart.createSplineChart(chart);
+    } else if(chart.chartId == '4') {
+      let liveChart = new LiveChart();
+      createdChart = liveChart.createLiveChart(chart);
     }
     return createdChart;
   }

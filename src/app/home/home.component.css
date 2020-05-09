@@ -114,3 +114,11 @@
 .device-flowRate {
     padding-bottom: 0;
 }
+
+.live-wrapper {
+    padding-left: 0;
+}
+
+.total-devices-wrapper{
+    padding: 0;
+}
