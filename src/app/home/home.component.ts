@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
+
     this.getFixedChartViewCards();
     // this.getDeviceCards(this.username);
     this.getDeviceDetails(this.username);
@@ -58,11 +59,21 @@ export class HomeComponent implements OnInit {
         this.chartViewCards.forEach(chartViewCard => {
           this.openChart(chartViewCard.chartId);
         });
-        console.log(this.chartViewCards)
+        this.updateData();
       }, errorObject => {
         console.log(errorObject.error);
       }
     );
+  }
+
+  updateData(){
+    let self = this;
+    setInterval(function(){
+      self.chartViewCards.forEach(chartViewCard => {
+        self.openChart(chartViewCard.chartId);
+      });
+      self.getDeviceDetails(self.username);
+    }, 5000);
   }
 
   // getDeviceCards(username: string) {
