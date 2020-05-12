@@ -16,6 +16,11 @@ export class LiveChart {
             title: {
                 text: chart.title
             },
+            toolTip: {
+                borderThickness: 0,
+                content: "<span style='\"'color: {color};'\"'>{label}</span>: {y} L",
+                cornerRadius: 0
+            },
             backgroundColor: "transparent",
             theme: "light2",
             data: [{

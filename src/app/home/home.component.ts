@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
         self.openChart(chartViewCard.chartId);
       });
       self.getDeviceDetails(self.username);
-    }, 5000);
+    }, 10000);
   }
 
   // getDeviceCards(username: string) {
