@@ -14,17 +14,17 @@ export class ColumnChart {
             animationEnabled: true,
             exportEnabled: true,
             title: {
-                text: chart.title
+                text: chart.title,
+                fontFamily: "tahoma",
+                fontSize: 18,
             },
             backgroundColor: "transparent",
-            theme: "light2",
+            theme: "dark1",
             axisX: {
-                labelFontSize: 14,
-                // valueFormatString: "MMM YYYY"
+                labelFontSize: 16,
             },
             axisY: {
-                labelFontSize: 14,
-                // prefix: "$"
+                labelFontSize: 16,
             },
             toolTip: {
                 borderThickness: 0,
@@ -33,12 +33,7 @@ export class ColumnChart {
             },
             data: [{
                 type: "column",
-                // yValueFormatString: "$###,###.##",
                 dataPoints: chart.dataPoints
-                // dataPoints: [
-                //     {y: 13.0, label: 'Máquina de lavar roupas'},
-                //     {y: 7.2, label: 'Filtro de água'}
-                // ]
             }]
         });
 

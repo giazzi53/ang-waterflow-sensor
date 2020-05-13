@@ -11,23 +11,29 @@ export class SplineChart {
 
     createSplineChart(chart: ChartView) {
         var createdChart = new CanvasJS.Chart("last-week-chart", {
-            animationEnabled: true,  
+            animationEnabled: true,
+            exportEnabled: true,
             title:{
-                text: chart.title
+                text: chart.title,
+                fontFamily: "tahoma"
             },
-            // axisY: {
-            //     title: "Revenue in USD",
-            //     valueFormatString: "#0,,.",
-            //     suffix: "mn",
-            //     prefix: "$"
-            // },
             backgroundColor: "transparent",
+            axisX: {
+                labelFontSize: 16,
+            },
+            axisY: {
+                labelFontSize: 16,
+            },
+            theme: "dark1",
+            toolTip: {
+                borderThickness: 0,
+                content: "<span style='\"'color: {color};'\"'>{label}</span>: {y} L",
+                cornerRadius: 0
+            },
             data: [{
                 type: "splineArea",
-                color: "rgba(54,158,173,.7)",
-                markerSize: 5,
-                // xValueFormatString: "YYYY",
-                // yValueFormatString: "$#,##0.##",
+                color: "rgba(255, 115, 114)",
+                markerSize: 8,
                 dataPoints: chart.dataPoints
             }]
         });

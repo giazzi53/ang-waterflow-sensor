@@ -13,12 +13,14 @@ export class PieChart {
         let createdChart = new CanvasJS.Chart("total-devices-chart", {
             animationEnabled: true,
             title: {
-                text: chart.title
+                text: chart.title,
+                fontFamily: "tahoma"
             },
+            exportEnabled: true,
             backgroundColor: "transparent",
-            theme: "light2",
+            theme: "dark1",
             legend: {
-                fontSize: 14
+                fontSize: 16
             },
             toolTip: {
                 borderThickness: 0,
@@ -34,12 +36,6 @@ export class PieChart {
                 startAngle:  90,
                 type: "pie",
                 dataPoints: chart.dataPoints
-                // dataPoints: [
-                //     {  y: 6289855, name:"Product A", indexLabel: "Product A - 41%", legendText: "Product A", exploded: true },
-                //     {  y: 2761400, name:"Product B", indexLabel: "Product B - 18%", legendText: "Product B" },
-                //     {  y: 3681866, name:"Product C", indexLabel: "Product C - 24%", legendText: "Product C", color: "#8064a1" },
-                //     {  y: 2607989, name:"Product D", indexLabel: "Product D - 17%", legendText: "Product D" }
-                // ]
             }]
         });
 
