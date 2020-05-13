@@ -6,7 +6,6 @@ import { ChartView } from '../interfaces/chartView';
 import { ColumnChart } from '../chartViews/column-chart';
 import { PieChart } from '../chartViews/pie-chart';
 import { SplineChart } from '../chartViews/spline-chart';
-import { LineChart } from '../chartViews/line-chart';
 import { LiveChart } from '../chartViews/live-chart';
 
 @Injectable({
@@ -75,8 +74,8 @@ export class HomeService {
         let columnChart = new ColumnChart();
         createdChart = columnChart.createColumnChart(chart);
     } else if(chart.chartId == '2') {
-      let lineChart = new LineChart();
-      createdChart = lineChart.createLineChart(chart);
+      let splineChart = new SplineChart();
+      createdChart = splineChart.createSplineChart(chart);
     } else if(chart.chartId == '1') {
         let pieChart = new PieChart();
         createdChart = pieChart.createPieChart(chart);

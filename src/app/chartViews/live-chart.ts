@@ -22,7 +22,7 @@ export class LiveChart {
                 cornerRadius: 0
             },
             backgroundColor: "transparent",
-            theme: "light2",
+            theme: "dark2",
             data: [{
                 type: "line",
                 dataPoints: chart.dataPoints
