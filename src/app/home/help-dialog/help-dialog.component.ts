@@ -15,9 +15,7 @@ export class HelpDialogComponent implements OnInit {
   }
 
   closeDialog(): void {
-    console.log(1);
     this.dialogRef.close();
-    console.log(2);
   }
 
 }

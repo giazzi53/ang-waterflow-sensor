@@ -70,19 +70,20 @@ export class HomeService {
 
   openChart(chart: ChartView){
     let createdChart;
-    if(chart.chartId == '3') {
-        let columnChart = new ColumnChart();
-        createdChart = columnChart.createColumnChart(chart);
+    if(chart.chartId == '1') {
+      let pieChart = new PieChart();
+      createdChart = pieChart.createPieChart(chart);
     } else if(chart.chartId == '2') {
       let splineChart = new SplineChart();
       createdChart = splineChart.createSplineChart(chart);
-    } else if(chart.chartId == '1') {
-        let pieChart = new PieChart();
-        createdChart = pieChart.createPieChart(chart);
+    } else if(chart.chartId == '3') {
+      let columnChart = new ColumnChart();
+      createdChart = columnChart.createColumnChart(chart);
     } else if(chart.chartId == '4') {
       let liveChart = new LiveChart();
       createdChart = liveChart.createLiveChart(chart);
     }
+    
     return createdChart;
   }
 

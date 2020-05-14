@@ -10,11 +10,6 @@
     padding: 1em;
 }
 
-/* .view-card:hover, .device-card:hover {
-    background-color: rgb(206, 204, 204);
-    cursor: pointer;
-} */
-
 .page-header {
     background-color: rgb(130, 171, 248);
     display: flex;
@@ -26,19 +21,13 @@
     font-family: tahoma;
 }
 
-/* .view-card:active, .device-card:active {
-    background-color: green;
-} */
-
 .view-card, .device-card {
     background-color: #e6f3ff;
 } 
 
 .help-icon {
-    /* color: rgb(92, 94, 92); */
     color: rgb(224, 224, 49);
     font-size: 2em;
-    /* width: 4em; */
 }
 
 .my-devices-title {
@@ -51,40 +40,23 @@
     color: #f8f9fa;
 }
 
-/* .add-icon {
-    color: green;
-} */
-
 .material-icons {
     cursor: pointer;
     float: right;
 }
-
-/* .remove-icon {
-    color: red;
-} */
 
 .views-wrapper {
     padding-top: 20px;
 }
 
 .mean-weekday-wrapper {
-   /* margin: 0; */
    padding: 0;
 }
 
 .box {
-    /* background-color: #88c4fb; */
-    /* background-color: #23272b; */
-
-    /* background-color: #555858; !!!! esse */
     background-color: rgb(102, 102, 102);
     text-align: center;
 }
-
-/* .chart-card {
-    float: right;
-} */
 
 .device-box {
     float: right;
@@ -116,11 +88,8 @@
 }
 
 .device {
-    /* color:red; */
     font-family: 'Courier New', Courier, monospace;
-    /* font-size: 15pt; */
     font-size: 1.25em;
-    /* padding: 0.38em; */
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -136,8 +105,4 @@
 
 .total-devices-wrapper{
     padding: 0;
-}
-
-.canvasjs-chart-toolbar{
-    background-color: red;
 }

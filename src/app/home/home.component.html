@@ -1,4 +1,3 @@
-<!-- <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner> -->
 <div class="page-header">
     <h1>Dados de consumo de água de {{ person.name }} (Atualizado em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
     <button (click)="toLogin()" type="button" class="btn btn-dark logout">
@@ -9,16 +8,7 @@
 <div class="general-wrapper" *ngIf="!loading">    
     <div class="mean-weekday-wrapper col-md-5">
         <mat-card class="box chart-card">
-            <!-- <mat-card-header>
-                <mat-card-title>{{ chartTitle }}</mat-card-title>
-            </mat-card-header> -->
             <mat-card-content>
-                <!-- <div class="card-message" *ngIf="chartOpen == false">
-                    Selecione uma visão de consumo para ver gráficos!
-                </div> -->
-                <!-- <div class="card-message">
-                    Ainda não há visões de consumo para gerar gráficos!
-                </div> -->
                 <div id="mean-weekday-chart" style="height: 20.5em;"></div>
             </mat-card-content>
         </mat-card>
@@ -34,25 +24,16 @@
                 <div *ngIf="devices.length == 0">
                     <span>Ainda não há dispositivos cadastrados!</span>
                 </div>
-                <div class="device-cards"> <!--*ngFor="let device of devices"-->
-                    <!-- <mat-card class="device-card" [ngStyle]="setColor(deviceCard)" (click)="getDeviceDetails(deviceCard)"> -->
-                    <!-- <mat-card class="device-card" (click)="getDeviceDetails(deviceCard)"> -->
+                <div class="device-cards">
                     <div class="device device-description">
                         <span>Descrição: {{ currentDevice.description }}</span>
                     </div>
-                    <!-- <br> -->
                     <div class="device device-deviceId">
                         <span>ID do dispositivo: {{ currentDevice.deviceId }}</span>
                     </div>
-                    <!-- <br> -->
                     <div class="device device-flowRate">
                         <span>Fluxo de água: {{ currentDevice.flowRate }} L</span>
                     </div>
-                        <!-- <mat-card class="device-card">
-                        <div class="device-description">
-                            <span>{{ device.description }}</span>
-                        </div>
-                    </mat-card> -->
                 </div>
             </mat-card-content>
         </mat-card>
@@ -60,17 +41,8 @@
 
     <div class="last-week-wrapper col-md-5">
         <mat-card class="box chart-card">
-            <!-- <mat-card-header>
-                <mat-card-title>{{ chartTitle }}</mat-card-title>
-            </mat-card-header> -->
             <mat-card-content>
                 <div id="last-week-chart" style="height: 20.5em;"></div>
-                <!-- <div class="empty-card-message" *ngIf="emptyChartData == true">
-                    <span>Não há informações sobre esse gráfico</span>
-                </div> -->
-                <!-- <div class="card-message">
-                    Ainda não há visões de consumo para gerar gráficos!
-                </div> -->
             </mat-card-content>
         </mat-card>
     </div>
@@ -79,16 +51,7 @@
 <div class="general-wrapper" *ngIf="!loading">    
     <div class="live-wrapper col-md-7">
         <mat-card class="box chart-card">
-            <!-- <mat-card-header>
-                <mat-card-title>{{ chartTitle }}</mat-card-title>
-            </mat-card-header> -->
             <mat-card-content>
-                <!-- <div class="card-message" *ngIf="chartOpen == false">
-                    Selecione uma visão de consumo para ver gráficos!
-                </div> -->
-                <!-- <div class="card-message">
-                    Ainda não há visões de consumo para gerar gráficos!
-                </div> -->
                 <div id="live-chart" style="height: 22.5em;"></div>
             </mat-card-content>
         </mat-card>
@@ -96,19 +59,9 @@
 
     <div class="total-devices-wrapper col-md-5">
         <mat-card class="box chart-card">
-            <!-- <mat-card-header>
-                <mat-card-title>{{ chartTitle }}</mat-card-title>
-            </mat-card-header> -->
             <mat-card-content>
-                <!-- <div class="card-message" *ngIf="chartOpen == false">
-                    Selecione uma visão de consumo para ver gráficos!
-                </div> -->
-                <!-- <div class="card-message">
-                    Ainda não há visões de consumo para gerar gráficos!
-                </div> -->
                 <div id="total-devices-chart" style="height: 22.5em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
 </div>
-    

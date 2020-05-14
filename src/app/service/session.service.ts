@@ -7,14 +7,6 @@ export class SessionService {
 
   constructor(private route: Router) { }
 
-  // getUserLogged() {
-  //   const userId = localStorage.getItem('user');
-  //   if (!this.userId) {
-  //     this.userId = userId;
-  //   }
-  //   return this.userId;
-  // }
-
   saveUserLogged(username: string) {
     this.username = username;
     localStorage.setItem('username', username);
@@ -22,8 +14,6 @@ export class SessionService {
 
   logoutUser() {
     localStorage.removeItem('username');
-    // localStorage.removeItem('name');
-    // this.userId = '';
     this.username = '';
     this.route.navigate(['']);
   }
