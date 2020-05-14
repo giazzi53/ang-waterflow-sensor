@@ -15,7 +15,8 @@ export class SplineChart {
             exportEnabled: true,
             title:{
                 text: chart.title,
-                fontFamily: "tahoma"
+                fontFamily: "tahoma",
+                fontSize: 22
             },
             backgroundColor: "transparent",
             axisX: {

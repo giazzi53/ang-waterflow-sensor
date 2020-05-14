@@ -1,6 +1,8 @@
 ::ng-deep.mat-dialog-container {
     background-color: #23272b;
-    color: white;
+    color: #f8f9fa;
+    font-family: tahoma;
+    font-size: 1.2em;
 }
 
 ol {

@@ -1,6 +1,6 @@
 <!-- <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner> -->
 <div class="page-header">
-    <h1>Dados de consumo de água de {{ person.name }}</h1>
+    <h1>Dados de consumo de água de {{ person.name }} (Atualizado em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
     <button (click)="toLogin()" type="button" class="btn btn-dark logout">
         Sair
         <mat-icon class="exit-icon">exit_to_app</mat-icon>
@@ -19,13 +19,13 @@
                 <!-- <div class="card-message">
                     Ainda não há visões de consumo para gerar gráficos!
                 </div> -->
-                <div id="mean-weekday-chart" style="height: 20em;"></div>
+                <div id="mean-weekday-chart" style="height: 20.5em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
 
     <div class="device-wrapper">
-        <mat-card class="box device-card col-md-12">
+        <mat-card class="box device-card col-md-12" style="height: 22.75em;">
             <span class="material-icons help-icon" (click)="openHelp()">help</span>
             <mat-card-header>
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
@@ -64,7 +64,7 @@
                 <mat-card-title>{{ chartTitle }}</mat-card-title>
             </mat-card-header> -->
             <mat-card-content>
-                <div id="last-week-chart" style="height: 20em;"></div>
+                <div id="last-week-chart" style="height: 20.5em;"></div>
                 <!-- <div class="empty-card-message" *ngIf="emptyChartData == true">
                     <span>Não há informações sobre esse gráfico</span>
                 </div> -->
@@ -89,7 +89,7 @@
                 <!-- <div class="card-message">
                     Ainda não há visões de consumo para gerar gráficos!
                 </div> -->
-                <div id="live-chart" style="height: 21.5em;"></div>
+                <div id="live-chart" style="height: 22.5em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
@@ -106,88 +106,9 @@
                 <!-- <div class="card-message">
                     Ainda não há visões de consumo para gerar gráficos!
                 </div> -->
-                <div id="total-devices-chart" style="height: 21.5em;"></div>
+                <div id="total-devices-chart" style="height: 22.5em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
 </div>
-<!-- <div class="general-card-wrapper" *ngIf="!loading">
-    <div class="devices-wrapper">
-        <mat-card class="box">
-            <span class="material-icons help-icon" (click)="openHelp()">help</span>
-            <mat-card-header>
-                <mat-card-title>Meus dispositivos</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div *ngIf="deviceCards.length == 0">
-                    <span>Ainda não há dispositivos cadastrados!</span>
-                </div>
-                <div class="device-cards" *ngFor="let deviceCard of deviceCards">
-                    <!- <mat-card class="device-card" [ngStyle]="setColor(deviceCard)" (click)="getDeviceDetails(deviceCard)"> ->
-                    <!- <mat-card class="device-card" (click)="getDeviceDetails(deviceCard)"> ->
-                    <mat-card class="device-card">
-                        <div class="device-description">
-                            <span>{{ deviceCard }}</span>
-                        </div>
-                    </mat-card>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div class="views-wrapper">
-        <mat-card class="box">
-            <!- <span class="material-icons add-icon">add_circle</span> ->
-            <mat-card-header>
-                <mat-card-title>Visões de consumo</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <!- <div *ngIf="chartViewCards.length == 0">
-                    <span>Ainda não há visões de consumo criadas!</span>
-                </div> ->
-                <div *ngIf="deviceCards.length == 0">
-                    <span>É necessário cadastrar ao menos um dispositivo para ter as visões!</span>
-                </div>
-                <div *ngIf="deviceCards.length != 0">
-                    <div class="view-cards" *ngFor="let chartViewCard of chartViewCards">
-                        <!- <mat-card class="view-card" (click)="openChart(chartViewCard.chartId)"> ->
-                        <mat-card class="view-card">
-                            <!- <span class="material-icons remove-icon">remove_circle</span> ->
-                            <div class="card-title">
-                                <span>{{ chartViewCard.title }}</span>
-                            </div>
-                            <!- <div class="card-description">
-                                <span>{{ chartViewCard.description }}</span>
-                            </div> ->
-                        </mat-card>
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-</div> -->
-
-<!-- <div class="general-detail-wrapper" *ngIf="!loading">     -->
-    <!-- <div class="device-wrapper">
-        <mat-card class="box device-box col-md-8">
-            <mat-card-header>
-                <mat-card-title>Detalhes do dispositivo - Consumo total</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="card-message" *ngIf="selectedDevice == null">
-                    Selecione um dispositivo para ver detalhes!
-                </div>
-                <div class="device-details">
-                    <span class="device-detail">Descrição do dispositivo: {{ selectedDevice.description }}</span>
-                    <!- <br> ->
-                    <span class="device-detail">Água consumida: {{ selectedDevice.flowRate }} L</span>
-                    <!- <br> ->
-                    <!- <span>Período da análise: {{ selectedDevice.timestamp }}</span>
-                    <br> ->
-                    <span class="device-detail">ID do dispositivo: {{ selectedDevice.deviceId }}</span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div> -->
-
     

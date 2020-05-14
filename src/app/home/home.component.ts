@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   chartViewCards: FixedChartViewCard[];
   devices: Device[];
   currentDevice: Device;
+  lastUpdate = new Date();
   // chartTitle: string;
   chartView: ChartView;
   selectedDevice: Device;
@@ -73,6 +74,7 @@ export class HomeComponent implements OnInit {
         self.openChart(chartViewCard.chartId);
       });
       self.getDeviceDetails(self.username);
+      self.lastUpdate = new Date();
     }, 10000);
   }
 

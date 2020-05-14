@@ -23,6 +23,7 @@
 
 .page-header h1{
     margin-bottom: 0;
+    font-family: tahoma;
 }
 
 /* .view-card:active, .device-card:active {
@@ -35,7 +36,9 @@
 
 .help-icon {
     /* color: rgb(92, 94, 92); */
-    color: rgb(251, 251, 34);
+    color: rgb(224, 224, 49);
+    font-size: 2em;
+    /* width: 4em; */
 }
 
 .my-devices-title {
@@ -73,7 +76,9 @@
 .box {
     /* background-color: #88c4fb; */
     /* background-color: #23272b; */
-    background-color: #555858;
+
+    /* background-color: #555858; !!!! esse */
+    background-color: rgb(102, 102, 102);
     text-align: center;
 }
 
@@ -96,18 +101,14 @@
     margin-left: 0.3em;
 }
 
-.device-card {
-    /* float: right; */
-}
-
 .general-wrapper {
     display: flex;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
 .device-wrapper {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .last-week-wrapper{
@@ -130,8 +131,13 @@
 
 .live-wrapper {
     padding-left: 0;
+    padding-right: 0.5em;
 }
 
 .total-devices-wrapper{
     padding: 0;
+}
+
+.canvasjs-chart-toolbar{
+    background-color: red;
 }

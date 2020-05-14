@@ -16,7 +16,7 @@ export class ColumnChart {
             title: {
                 text: chart.title,
                 fontFamily: "tahoma",
-                fontSize: 18,
+                fontSize: 18
             },
             backgroundColor: "transparent",
             theme: "dark1",
