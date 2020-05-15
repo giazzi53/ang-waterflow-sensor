@@ -14,13 +14,14 @@ export class PieChart {
             animationEnabled: true,
             title: {
                 text: chart.title,
-                fontFamily: "tahoma"
+                fontFamily: "tahoma",
+                fontSize: 18
             },
             exportEnabled: true,
             backgroundColor: "transparent",
             theme: "dark1",
             legend: {
-                fontSize: 16
+                fontSize: 14
             },
             toolTip: {
                 borderThickness: 0,

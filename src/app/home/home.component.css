@@ -25,6 +25,10 @@
     background-color: #e6f3ff;
 } 
 
+.device-card {
+    height: 22.75em;
+}
+
 .help-icon {
     color: rgb(224, 224, 49);
     font-size: 2em;
@@ -105,4 +109,31 @@
 
 .total-devices-wrapper{
     padding: 0;
+}
+
+@media only screen and (max-width: 480px) {
+    .general-wrapper {
+        display: grid;
+        margin: 0;
+    }
+
+    .page-header h1{
+        font-size: 1.35em;
+        width: 80%;
+    }
+
+    .box {
+        margin: 0.5em;
+    }
+
+    .device-card{
+        margin: 0;
+        padding: 0;
+        height: 14em;
+    }
+
+    .live-wrapper {
+        padding: 0;
+    }
+
 }

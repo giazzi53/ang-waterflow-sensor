@@ -16,14 +16,14 @@ export class SplineChart {
             title:{
                 text: chart.title,
                 fontFamily: "tahoma",
-                fontSize: 22
+                fontSize: 18
             },
             backgroundColor: "transparent",
             axisX: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             axisY: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             theme: "dark1",
             toolTip: {

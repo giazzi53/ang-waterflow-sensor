@@ -21,10 +21,10 @@ export class ColumnChart {
             backgroundColor: "transparent",
             theme: "dark1",
             axisX: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             axisY: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             toolTip: {
                 borderThickness: 0,

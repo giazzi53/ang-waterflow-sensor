@@ -15,7 +15,8 @@ export class LiveChart {
             exportEnabled: true,
             title: {
                 text: chart.title,
-                fontFamily: "tahoma"
+                fontFamily: "tahoma",
+                fontSize: 18
             },
             toolTip: {
                 borderThickness: 0,
@@ -23,10 +24,10 @@ export class LiveChart {
                 cornerRadius: 0
             },
             axisX: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             axisY: {
-                labelFontSize: 16,
+                labelFontSize: 14,
             },
             backgroundColor: "transparent",
             theme: "dark1",
