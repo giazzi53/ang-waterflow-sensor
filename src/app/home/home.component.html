@@ -21,8 +21,8 @@
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <div *ngIf="devices.length == 0">
-                    <span>Ainda não há dispositivos cadastrados!</span>
+                <div class="empty-devices" *ngIf="devices.length == 0">
+                    <span>Ainda não há dispositivos cadastrados! Clique no ícone de ajuda e veja como cadatrar um dispositivo</span>
                 </div>
                 <div class="device-cards">
                     <div class="device device-description">
