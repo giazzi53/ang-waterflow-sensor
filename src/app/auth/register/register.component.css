@@ -135,11 +135,10 @@ mat-form-field {
 @media only screen and (max-width: 480px) {
     .login-wrapper mat-card-header mat-card-title {
         padding-top: 5em;
-        
     }
 
     .btn-block {
-        padding: 0;
+        padding: 0.5em;
     }
 
     .login-wrapper mat-card-header {
@@ -147,25 +146,7 @@ mat-form-field {
         margin-left: -3.5em;
     }
 
-    /* .login-wrapper {
-        width: 105%;
-    } */
-
     .login {
         margin-top: 0;
     }
 }
-
-/* @media(max-width: 645px) {
-    .btn-cancel {
-        margin-right: 0;
-    }
-    .login-wrapper .mat-stroked-button {
-        width: 225px;
-        margin-bottom: 5%;
-    }
-    .btn-clean {
-        margin-bottom: 5%;
-    }
-} */
-
