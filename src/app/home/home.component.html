@@ -15,7 +15,7 @@
     </div>
 
     <div class="device-wrapper">
-        <mat-card class="box device-card col-md-12">
+        <mat-card class="box device-card col-md-12" style="height: 22.7em;">
             <span class="material-icons help-icon" (click)="openHelp()">help</span>
             <mat-card-header>
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
@@ -50,7 +50,7 @@
 
 <div class="general-wrapper" *ngIf="!loading">    
     <div class="live-wrapper col-md-7">
-        <mat-card class="box chart-card">
+        <mat-card class="box chart-card live-wrapper-card">
             <mat-card-content>
                 <div id="live-chart" style="height: 22.5em;"></div>
             </mat-card-content>

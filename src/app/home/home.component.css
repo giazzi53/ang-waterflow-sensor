@@ -93,7 +93,7 @@
 
 .device {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.25em;
+    font-size: 1.3em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -129,11 +129,39 @@
     .device-card{
         margin: 0;
         padding: 0;
-        height: 14em;
+        /* height: 14em; */
     }
 
     .live-wrapper {
         padding: 0;
     }
 
+    .live-wrapper-card {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .my-devices-title {
+        margin-left: 4em;
+        padding-top: 1em;
+    }
+
+    .help-icon {
+        padding-top: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .device-cards {
+        width: 80%;
+        margin-left: 2.5em;
+    }
+
+    .device-deviceId {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+    }
+
+    .device {
+        font-size: 1.5em;
+    }
 }

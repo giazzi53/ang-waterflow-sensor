@@ -3,8 +3,17 @@
     color: #f8f9fa;
     font-family: tahoma;
     font-size: 1.2em;
+    width: 35%;
+    margin-left: 22em;
 }
 
 ol {
  margin-left: -5%;
+}
+
+@media only screen and (max-width: 480px) {
+    ::ng-deep.mat-dialog-container {
+        width: 100%;
+        margin-left: 0;
+    }
 }

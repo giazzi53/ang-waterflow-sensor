@@ -105,9 +105,10 @@ export class HomeComponent implements OnInit {
   }
 
   openHelp(){
-    this.dialog.open(HelpDialogComponent, {
-      width: '35%'
-    })
+    // this.dialog.open(HelpDialogComponent, {
+    //   width: '35%'
+    // })
+    this.dialog.open(HelpDialogComponent);
   }
 
   toLogin() {
