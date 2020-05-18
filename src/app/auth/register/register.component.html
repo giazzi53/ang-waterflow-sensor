@@ -55,6 +55,9 @@
             <button mat-button mat-raised-button [disabled]="!userForm.valid" type="submit" color="primary" class="btn-block col-md-2">
             Cadastrar
             </button>
+            <div class="login">
+                <span>Já tem uma conta? </span><span class="login-link" (click)="toLogin()">Faça o login</span>
+            </div>
           </form>
     </mat-card>
  </div>

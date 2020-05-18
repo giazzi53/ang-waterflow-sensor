@@ -36,6 +36,19 @@ body {
     color: #ffffff;
 }
 
+.login {
+    margin-top: 1em;
+}
+
+.login-link {
+    color: rgb(65, 65, 255);
+}
+
+.login-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /*.box {
     position: relative;
     top: 0;
