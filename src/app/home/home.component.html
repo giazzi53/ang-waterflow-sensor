@@ -16,8 +16,10 @@
 
     <div class="device-wrapper">
         <mat-card class="box device-card col-md-12" style="height: 22.7em;">
-            <span class="material-icons arrow_back" (click)="openPreviousDevice()">arrow_back</span>
-            <span class="material-icons arrow_forward" (click)="openNextDevice()">arrow_forward</span>
+            <div class="a" *ngIf="devices.length !== 0">
+                <span class="material-icons arrow_back" (click)="openPreviousDevice()">arrow_back</span>
+                <span class="material-icons arrow_forward" (click)="openNextDevice()">arrow_forward</span>
+            </div>
             <span class="material-icons help-icon" (click)="openHelp()">help</span>
             <mat-card-header>
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
