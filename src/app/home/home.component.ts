@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   chartOpen = false;
   onlyOnce = true;
   person: Person;
+  interval;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
   devices: Device[];
@@ -68,7 +69,7 @@ export class HomeComponent implements OnInit {
 
   updateData(){
     let self = this;
-    setInterval(function(){
+    this.interval = setInterval(function(){
       self.chartViewCards.forEach(chartViewCard => {
         self.openChart(chartViewCard.chartId);
       });
@@ -132,6 +133,7 @@ export class HomeComponent implements OnInit {
   }
 
   toLogin() {
+    clearInterval(this.interval);
     this.sessionService.logoutUser();
   }
 }
