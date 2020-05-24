@@ -15,6 +15,6 @@ export class SessionService {
   logoutUser() {
     localStorage.removeItem('username');
     this.username = '';
-    this.route.navigate(['']);
+    this.route.navigateByUrl('/');
   }
 }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { Person } from '../interfaces/person';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
   selectedDevice: Device;
   emptyChartData: boolean = false;
 
-  constructor(private homeService: HomeService, private router: Router, public dialog: MatDialog) {
+  constructor(private homeService: HomeService, private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
     this.getFixedChartViewCards();
     this.getDeviceDetails(this.username);
@@ -86,7 +87,6 @@ export class HomeComponent implements OnInit {
           this.currentDevice = this.devices[0];
           this.onlyOnce = false;
         }
-        console.log(this.selectedDevice);
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -132,6 +132,6 @@ export class HomeComponent implements OnInit {
   }
 
   toLogin() {
-    this.router.navigateByUrl('/');
+    this.sessionService.logoutUser();
   }
 }
