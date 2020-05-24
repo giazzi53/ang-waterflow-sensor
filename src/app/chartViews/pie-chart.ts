@@ -17,7 +17,7 @@ export class PieChart {
                 fontFamily: "tahoma",
                 fontSize: 18
             },
-            exportEnabled: true,
+            // exportEnabled: true,
             backgroundColor: "transparent",
             theme: "dark1",
             legend: {

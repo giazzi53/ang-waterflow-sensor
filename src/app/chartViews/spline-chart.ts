@@ -12,7 +12,7 @@ export class SplineChart {
     createSplineChart(chart: ChartView) {
         var createdChart = new CanvasJS.Chart("last-week-chart", {
             animationEnabled: true,
-            exportEnabled: true,
+            // exportEnabled: true,
             title:{
                 text: chart.title,
                 fontFamily: "tahoma",

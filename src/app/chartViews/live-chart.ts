@@ -12,7 +12,7 @@ export class LiveChart {
     createLiveChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("live-chart", {
             animationEnabled: true,
-            exportEnabled: true,
+            // exportEnabled: true,
             title: {
                 text: chart.title,
                 fontFamily: "tahoma",

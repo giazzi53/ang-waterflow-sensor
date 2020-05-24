@@ -16,6 +16,8 @@
 
     <div class="device-wrapper">
         <mat-card class="box device-card col-md-12" style="height: 22.7em;">
+            <span class="material-icons arrow_back" (click)="openPreviousDevice()">arrow_back</span>
+            <span class="material-icons arrow_forward" (click)="openNextDevice()">arrow_forward</span>
             <span class="material-icons help-icon" (click)="openHelp()">help</span>
             <mat-card-header>
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
@@ -35,6 +37,7 @@
                         <span>Fluxo de água: {{ currentDevice.flowRate }} L</span>
                     </div>
                 </div>
+                <span class="device-index">{{ devices.indexOf(currentDevice) + 1 }} de {{ devices.length }}</span>
             </mat-card-content>
         </mat-card>
     </div>

@@ -31,13 +31,14 @@
 
 .help-icon {
     color: rgb(224, 224, 49);
-    font-size: 2em;
+    font-size: 1.8em;
+    margin-right: 0.3em;
 }
 
 .my-devices-title {
     color: #f8f9fa;
     font-family: tahoma;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .device {
@@ -58,7 +59,7 @@
 }
 
 .box {
-    background-color: rgb(102, 102, 102);
+    background-color: rgb(75, 73, 73);
     text-align: center;
 }
 
@@ -78,6 +79,10 @@
     padding-top: 5em;
 }
 
+.device-index {
+    color: #f8f9fa;
+}
+
 .exit-icon {
     margin-left: 0.3em;
 }
@@ -94,6 +99,14 @@
 
 .last-week-wrapper{
     padding: 0;
+}
+
+.arrow_back {
+    float: left;
+}
+
+.arrow_back, .arrow_forward {
+    color: #f8f9fa;
 }
 
 .device {
@@ -152,18 +165,24 @@
     }
 
     .my-devices-title {
-        margin-left: 4em;
-        padding-top: 1em;
+        margin-left: 0.2em;
+        padding-top: 1.2em;
+        font-size: 1.5em;
     }
 
     .help-icon {
-        padding-top: 0.5em;
+        padding-top: 0.7em;
         padding-right: 0.5em;
+        font-size: 2em;
     }
 
     .device-cards {
         width: 80%;
         margin-left: 2.5em;
+    }
+
+    .device-index {
+        font-size: 1.2em;
     }
 
     .device-deviceId {
@@ -173,5 +192,18 @@
 
     .device {
         font-size: 1.5em;
+    }
+
+    .arrow_back, .arrow_forward {
+        padding-top: 0.7em;
+        font-size: 2em;
+    }
+
+    .arrow_back {
+        padding-left: 1em;
+    }
+
+    .arrow_forward {
+        padding-right: 1em;
     }
 }

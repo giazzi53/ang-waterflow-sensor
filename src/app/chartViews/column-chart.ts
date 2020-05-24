@@ -12,7 +12,7 @@ export class ColumnChart {
     createColumnChart(chart: ChartView) {
         let createdChart = new CanvasJS.Chart("mean-weekday-chart", {
             animationEnabled: true,
-            exportEnabled: true,
+            // exportEnabled: true,
             title: {
                 text: chart.title,
                 fontFamily: "tahoma",
