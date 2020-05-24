@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   loading = false;
   chartOpen = false;
-  onlyOnce = true;
   person: Person;
   interval;
   username: string = localStorage.getItem('username');
@@ -84,10 +83,7 @@ export class HomeComponent implements OnInit {
       res => {
         console.log('Retorno da requisição de recuperar detalhes dos dispositivos: ' + JSON.stringify(res));
         this.devices = res;
-        if(this.onlyOnce){
-          this.currentDevice = this.devices[0];
-          this.onlyOnce = false;
-        }
+        this.currentDevice = this.devices[0];
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -110,9 +106,6 @@ export class HomeComponent implements OnInit {
   }
 
   openHelp(){
-    // this.dialog.open(HelpDialogComponent, {
-    //   width: '35%'
-    // })
     this.dialog.open(HelpDialogComponent);
   }
   
