@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Dados de consumo de água de {{ person.name }} (Atualizado em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
+    <h1 *ngIf="person !== undefined">Dados de consumo de água de {{ person.name }} (Atualizado em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
     <button (click)="toLogin()" type="button" class="btn btn-dark logout">
         Sair
         <mat-icon class="exit-icon">exit_to_app</mat-icon>
@@ -16,7 +16,7 @@
 
     <div class="device-wrapper">
         <mat-card class="box device-card col-md-12" style="height: 22.7em;">
-            <div class="a" *ngIf="devices.length !== 0">
+            <div class="a" *ngIf="devices !== undefined && devices.length !== 0">
                 <span class="material-icons arrow_back" (click)="openPreviousDevice()">arrow_back</span>
                 <span class="material-icons arrow_forward" (click)="openNextDevice()">arrow_forward</span>
             </div>
@@ -25,10 +25,10 @@
                 <mat-card-title class="my-devices-title">Meus dispositivos</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <div class="empty-devices" *ngIf="devices.length == 0">
+                <div class="empty-devices" *ngIf="devices !== undefined && devices.length == 0">
                     <span>Ainda não há dispositivos cadastrados! Clique no ícone de ajuda e veja como cadatrar um dispositivo</span>
                 </div>
-                <div class="device-cards">
+                <div *ngIf="currentDevice !== undefined" class="device-cards">
                     <div class="device device-description">
                         <span>Descrição: {{ currentDevice.description }}</span>
                     </div>
@@ -39,7 +39,7 @@
                         <span>Fluxo de água: {{ currentDevice.flowRate }} L</span>
                     </div>
                 </div>
-                <span class="device-index">{{ devices.indexOf(currentDevice) + 1 }} de {{ devices.length }}</span>
+                <span *ngIf="devices !== undefined" class="device-index">{{ devices.indexOf(currentDevice) + 1 }} de {{ devices.length }}</span>
             </mat-card-content>
         </mat-card>
     </div>
