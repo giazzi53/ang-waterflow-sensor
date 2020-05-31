@@ -5,7 +5,7 @@ var cors = require('cors');
 var app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static('./dist/ang-waterflow-sensor'));
+app.use(express.static('dist/ang-waterflow-sensor'));
 app.use(cors());
 
 app.get('/*', function(req, res) {
