@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getUserData(username)
     .subscribe(
       res => {
-        console.log('Retorno da requisição de recuperar dados do usuário: ' + res);
+        console.log('Retorno da requisição de recuperar dados do usuário: ' + JSON.stringify(res));
         this.person = res;
       }, errorObject => {
         console.log(errorObject.error);

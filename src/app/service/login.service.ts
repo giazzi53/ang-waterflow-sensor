@@ -25,7 +25,7 @@ export class LoginService {
         'password': password
       })
     };
-    console.log("Requisição para login: " + httpOptions.headers.get('username'), httpOptions.headers.get('password'));
+    console.log("Requisição para login recebida. Usuário: " + httpOptions.headers.get('username'), "Senha: "+ httpOptions.headers.get('password'));
     return this.http.get<Person>(url, httpOptions);
   }
 }

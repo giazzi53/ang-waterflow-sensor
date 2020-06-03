@@ -134,7 +134,7 @@ mat-form-field {
 
 @media only screen and (max-width: 480px) {
     .login-wrapper mat-card-header mat-card-title {
-        padding-top: 5em;
+        padding-top: 10em;
     }
 
     .btn-block {
@@ -148,5 +148,11 @@ mat-form-field {
 
     .login {
         margin-top: 0;
+    }
+}
+
+@media only screen and (min-height: 800px) {
+    .login-wrapper mat-card-header mat-card-title {
+        padding-top: 5em;
     }
 }

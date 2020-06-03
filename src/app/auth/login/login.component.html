@@ -13,7 +13,7 @@
             </mat-form-field>
         </div>
           <button *ngIf="!loading" [disabled]="!loginForm.form.valid" mat-raised-button type="submit" color="primary" class="btn-block">Entrar</button>
-          <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner>
+          <!-- <mat-progress-spinner *ngIf="loading" class="example-margin" mode="indeterminate" color="warn"></mat-progress-spinner> -->
           <div class="register">
             <span>Ainda não tem uma conta? </span><span class="register-link" (click)="toRegister()">Cadastre-se aqui</span>
           </div>
