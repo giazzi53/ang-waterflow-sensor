@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // personBaseUrl: 'http://localhost:8080',
-  personBaseUrl: 'https://java-waterflow-sensor.herokuapp.com/',
+  personBaseUrl: 'https://java-waterflow-sensor.herokuapp.com/'
 };
 
 /*
