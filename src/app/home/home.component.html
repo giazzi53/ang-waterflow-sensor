@@ -1,5 +1,14 @@
 <div class="page-header">
-    <h1 *ngIf="person !== undefined">Dados de consumo de água de {{ person.name }} (Atualizado em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
+    <h1 *ngIf="person !== undefined">Dados de {{ person.name }} (Última atualização em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
+    <!-- <div class="title">
+        <h1 *ngIf="person !== undefined">Dados de {{ person.name }}</h1>
+        <h1>Última atualização em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }}</h1>    
+    </div> -->
+    <button *ngIf="person !== undefined" type="button" class="btn btn-dark profile">
+        <!-- {{ person.username }} -->
+        Perfil
+        <mat-icon class="person-icon">person</mat-icon>
+    </button>
     <button (click)="toLogin()" type="button" class="btn btn-dark logout">
         Sair
         <mat-icon class="exit-icon">exit_to_app</mat-icon>

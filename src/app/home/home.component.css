@@ -11,12 +11,14 @@
 }
 
 .page-header {
-    background-color: rgb(130, 171, 248);
+    background-color: rgb(27, 29, 34);
+    color: #f8f9fa;
     display: flex;
     padding: 1em;
 }
 
 .page-header h1{
+    font-size: 1.5em;
     margin-bottom: 0;
     font-family: tahoma;
 }
@@ -59,7 +61,8 @@
 }
 
 .box {
-    background-color: rgb(75, 73, 73);
+    /* background-color: rgb(75, 73, 73); */
+    background-color: #343a40;
     text-align: center;
 }
 
@@ -67,11 +70,15 @@
     float: right;
 }
 
-.logout {
+.logout, .profile {
     position: absolute;
     right: 0;
     top: 0;
     padding: 1em;
+}
+
+.profile {
+    margin-right: 6.5em;
 }
 
 .empty-devices {
@@ -137,7 +144,13 @@
 
     .page-header h1{
         font-size: 1.35em;
-        width: 80%;
+        width: 70%;
+    }
+
+    .profile {
+        float: right;
+        margin-top: 4em;
+        margin-right: 0;
     }
 
     .box {
