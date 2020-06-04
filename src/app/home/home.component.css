@@ -61,7 +61,6 @@
 }
 
 .box {
-    /* background-color: rgb(75, 73, 73); */
     background-color: #343a40;
     text-align: center;
 }
@@ -117,10 +116,10 @@
 }
 
 .device {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.3em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    font-family: tahoma;
+    font-size: 1.2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .device-flowRate {
@@ -190,8 +189,8 @@
     }
 
     .device-cards {
-        width: 80%;
-        margin-left: 2.5em;
+        width: 90%;
+        margin-left: 1.8em;
     }
 
     .device-index {
@@ -204,7 +203,9 @@
     }
 
     .device {
-        font-size: 1.5em;
+        font-size: 1.2em;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
     }
 
     .arrow_back, .arrow_forward {
