@@ -129,4 +129,9 @@ export class HomeComponent implements OnInit {
     clearInterval(this.interval);
     this.sessionService.logoutUser();
   }
+
+  toProfile() {
+    clearInterval(this.interval);
+    this.router.navigateByUrl('/profile');
+  }
 }

@@ -1,20 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RegisterService } from 'src/app/service/register.service';
-import { Person } from 'src/app/interfaces/person';
-import { Gender } from 'src/app/interfaces/gender';
-import { Region } from 'src/app/interfaces/region';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Region } from '../interfaces/region';
+import { Gender } from '../interfaces/gender';
+import { SessionService } from '../service/session.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SessionService } from 'src/app/service/session.service';
+import { Person } from '../interfaces/person';
+import { ProfileService } from '../service/profile.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
+  user: Person;
   userForm: FormGroup;
   regions: Region[] = [
     { value: 'NORTH', viewValue: 'Norte' },
@@ -29,11 +30,34 @@ export class RegisterComponent implements OnInit {
     { value: 'UNINFORMED', viewValue: 'Não informar' }
   ];
 
-  constructor(private registerService: RegisterService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { 
+  constructor(private profileService: ProfileService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { 
     this.userForm = this.createUser();
   }
 
+  ngOnInit(): void {
+    this.retrieveProfileData();
+  }
+
   @Input() person: Person = <Person>{};
+
+  retrieveProfileData(){
+    this.profileService.retrieveProfileData(localStorage.getItem('username')).subscribe(
+      res => {
+        // this.loading = false;
+        // this.sessionService.saveUserLogged(this.person.username);
+        // this.router.navigate(['home']);
+        this.user = res;
+        console.log('user is ' + JSON.stringify(this.user));
+        console.log(1111)
+      }, errorObject => {
+        // this.loading = false;
+        console.log(errorObject.error);
+        this.snackbar.open(errorObject.error, 'Dismiss', {
+          duration: 2000,
+          panelClass: ['error-snackbar']
+        });
+      });
+  }
 
   createUser() {
     return new FormGroup({
@@ -50,7 +74,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.person = this.userForm.value;
-    this.registerService.register(this.person).subscribe(
+    this.person._id = this.user._id;
+    this.profileService.update(this.person, localStorage.getItem('username')).subscribe(
      res => {
         // this.loading = false;
         this.sessionService.saveUserLogged(this.person.username);
@@ -66,12 +91,8 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-    
-  }
-
-  toLogin() {
-    this.router.navigateByUrl('/');
+  toHome() {
+    this.router.navigateByUrl('/home');
   }
 
 }

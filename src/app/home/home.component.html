@@ -4,7 +4,7 @@
         <h1 *ngIf="person !== undefined">Dados de {{ person.name }}</h1>
         <h1>Última atualização em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }}</h1>    
     </div> -->
-    <button *ngIf="person !== undefined" type="button" class="btn btn-dark profile">
+    <button *ngIf="person !== undefined" (click)="toProfile()" type="button" class="btn btn-dark profile">
         <!-- {{ person.username }} -->
         Perfil
         <mat-icon class="person-icon">person</mat-icon>

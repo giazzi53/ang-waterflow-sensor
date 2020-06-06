@@ -35,6 +35,7 @@ import { MatCardModule } from '@angular/material/card';
 import { SessionService } from './service/session.service';
 import { HelpDialogComponent } from './home/help-dialog/help-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    HelpDialogComponent
+    HelpDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
