@@ -1,12 +1,12 @@
 
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div *ngIf="user !== undefined" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="col-md-7">
        <mat-card-header>
           <mat-card-title>WACOP - Water Consumption Platfrom</mat-card-title>
        </mat-card-header>
           <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
-                <mat-form-field *ngIf="user.username !== undefined" class="col-md-6">
+                <mat-form-field class="col-md-6">
                     <mat-label>Usuário</mat-label>
                     <input matInput formControlName="username" [(ngModel)]="user.username" required>
                 </mat-form-field>

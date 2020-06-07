@@ -80,7 +80,6 @@ export class ProfileComponent implements OnInit {
         // this.loading = false;
         this.sessionService.saveUserLogged(this.person.username);
         this.router.navigate(['home']);
-        console.log(1111)
       }, errorObject => {
         // this.loading = false;
         console.log(errorObject.error);
