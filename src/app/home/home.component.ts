@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private homeService: HomeService, private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
-    this.getFixedChartViewCards();
     this.getDeviceDetails(this.username);
   }
 
@@ -56,7 +55,7 @@ export class HomeComponent implements OnInit {
         console.log('Retorno da requisição de recuperar cards dos gráficos das visões: ' + JSON.stringify(res));
         this.chartViewCards = res;
         this.chartViewCards.forEach(chartViewCard => {
-          this.openChart(chartViewCard.chartId);
+          this.openChart(chartViewCard.chartId, this.currentDevice.deviceId);
         });
         this.updateData();
       }, errorObject => {
@@ -69,7 +68,7 @@ export class HomeComponent implements OnInit {
     let self = this;
     this.interval = setInterval(function(){
       self.chartViewCards.forEach(chartViewCard => {
-        self.openChart(chartViewCard.chartId);
+        self.openChart(chartViewCard.chartId, self.currentDevice.deviceId);
       });
       self.getDeviceDetails(self.username);
       self.lastUpdate = new Date();
@@ -85,14 +84,15 @@ export class HomeComponent implements OnInit {
         if(this.devices.length > 0){
           this.currentDevice = this.devices[0];
         }
+        this.getFixedChartViewCards();
       }, errorObject => {
         console.log(errorObject.error);
       }
     );
   }
 
-  openChart(chartId: string) {
-    this.homeService.getChartView(chartId, this.username)
+  openChart(chartId: string, deviceId: string) {
+    this.homeService.getChartView(chartId, this.username, deviceId)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
         } else {
           this.homeService.openChart(res);
         }
-        
+
         if(res.dataPoints.length == 0){
           this.emptyChartData = true;
         }
@@ -121,7 +121,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) - 1];
     }
-    this.openChart('4');
+    this.openChart('4', this.currentDevice.deviceId);
   }
 
   openNextDevice(){
@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) + 1];
     }
-    this.openChart('4');
+    this.openChart('4', this.currentDevice.deviceId);
   }
 
   toLogin() {
