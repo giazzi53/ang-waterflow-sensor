@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   lastUpdate = new Date();
   chartView: ChartView;
   emptyChartData: boolean = false;
+  onlyOnce: boolean = true;
 
   constructor(private homeService: HomeService, private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
@@ -57,7 +58,10 @@ export class HomeComponent implements OnInit {
         this.chartViewCards.forEach(chartViewCard => {
           this.openChart(chartViewCard.chartId, this.currentDevice.deviceId);
         });
-        this.updateData();
+        if(this.onlyOnce == true){
+          this.updateData();
+          this.onlyOnce = false;
+        }
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -67,9 +71,6 @@ export class HomeComponent implements OnInit {
   updateData(){
     let self = this;
     this.interval = setInterval(function(){
-      self.chartViewCards.forEach(chartViewCard => {
-        self.openChart(chartViewCard.chartId, self.currentDevice.deviceId);
-      });
       self.getDeviceDetails(self.username);
       self.lastUpdate = new Date();
     }, 32000);
