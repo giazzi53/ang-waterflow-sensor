@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
       });
       self.getDeviceDetails(self.username);
       self.lastUpdate = new Date();
-    }, 30000);
+    }, 32000);
   }
 
   getDeviceDetails(username: string) {

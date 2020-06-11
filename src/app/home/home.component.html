@@ -1,11 +1,6 @@
 <div class="page-header">
     <h1 *ngIf="person !== undefined">Dados de {{ person.name }} (Última atualização em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }})</h1>
-    <!-- <div class="title">
-        <h1 *ngIf="person !== undefined">Dados de {{ person.name }}</h1>
-        <h1>Última atualização em: {{ lastUpdate | date:'dd/MM/yyyy HH:mm:ss' }}</h1>    
-    </div> -->
     <button *ngIf="person !== undefined" (click)="toProfile()" type="button" class="btn btn-dark profile">
-        <!-- {{ person.username }} -->
         Perfil
         <mat-icon class="person-icon">person</mat-icon>
     </button>
@@ -53,14 +48,6 @@
         </mat-card>
     </div>
 
-    <!-- <div class="last-week-wrapper col-md-5">
-        <mat-card class="box chart-card">
-            <mat-card-content>
-                <div id="last-week-chart" style="height: 20.5em;"></div>
-            </mat-card-content>
-        </mat-card>
-    </div> -->
-
     <div class="live-wrapper col-md-5">
         <mat-card class="box chart-card live-wrapper-card">
             <mat-card-content>
@@ -71,14 +58,6 @@
 </div>
 
 <div class="general-wrapper" *ngIf="!loading">    
-    <!-- <div class="live-wrapper col-md-7">
-        <mat-card class="box chart-card live-wrapper-card">
-            <mat-card-content>
-                <div id="live-chart" style="height: 22.5em;"></div>
-            </mat-card-content>
-        </mat-card>
-    </div> -->
-
     <div class="last-week-wrapper col-md-7">
         <mat-card class="box chart-card">
             <mat-card-content>
