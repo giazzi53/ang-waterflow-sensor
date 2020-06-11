@@ -103,10 +103,6 @@
     margin-right: 0.2em;
 }
 
-.last-week-wrapper{
-    padding: 0;
-}
-
 .arrow_back {
     float: left;
 }
@@ -127,6 +123,10 @@
 }
 
 .live-wrapper {
+    padding: 0;
+}
+
+.last-week-wrapper {
     padding-left: 0;
     padding-right: 0.2em;
 }
@@ -167,8 +167,13 @@
         padding: 0;
     }
 
+    .last-week-wrapper {
+        padding: 0;
+    }
+
     .live-wrapper {
         padding: 0;
+        padding-top: 0.2em;
     }
 
     .live-wrapper-card {

@@ -68,7 +68,7 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  openChart(chart: ChartView){
+  openChart(chart: ChartView, selectedDevice: string){
     let createdChart;
     if(chart.chartId == '1') {
       let pieChart = new PieChart();
@@ -81,7 +81,7 @@ export class HomeService {
       createdChart = columnChart.createColumnChart(chart);
     } else if(chart.chartId == '4') {
       let liveChart = new LiveChart();
-      createdChart = liveChart.createLiveChart(chart);
+      createdChart = liveChart.createLiveChart(chart, selectedDevice);
     }
     
     return createdChart;

@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   currentDevice: Device;
   lastUpdate = new Date();
   chartView: ChartView;
-  selectedDevice: Device;
   emptyChartData: boolean = false;
 
   constructor(private homeService: HomeService, private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
@@ -95,7 +94,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
-        this.homeService.openChart(res);
+        this.homeService.openChart(res, this.currentDevice.description);
         if(res.dataPoints.length == 0){
           this.emptyChartData = true;
         }
@@ -115,6 +114,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) - 1];
     }
+    this.openChart('4');
   }
 
   openNextDevice(){
@@ -123,6 +123,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) + 1];
     }
+    this.openChart('4');
   }
 
   toLogin() {

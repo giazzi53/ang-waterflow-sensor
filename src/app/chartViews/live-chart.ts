@@ -9,12 +9,12 @@ export class LiveChart {
     ngOnInit(){
     }
 
-    createLiveChart(chart: ChartView) {
+    createLiveChart(chart: ChartView, selectedDevice: string) {
         let createdChart = new CanvasJS.Chart("live-chart", {
             animationEnabled: true,
             // exportEnabled: true,
             title: {
-                text: chart.title,
+                text: chart.title + ' ' + selectedDevice,
                 fontFamily: "tahoma",
                 fontSize: 18
             },
