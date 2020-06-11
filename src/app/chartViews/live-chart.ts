@@ -10,6 +10,10 @@ export class LiveChart {
     }
 
     createLiveChart(chart: ChartView, selectedDevice: string) {
+        if(selectedDevice == undefined){
+            selectedDevice = '';
+        }
+
         let createdChart = new CanvasJS.Chart("live-chart", {
             animationEnabled: true,
             // exportEnabled: true,

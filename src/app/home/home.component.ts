@@ -82,7 +82,9 @@ export class HomeComponent implements OnInit {
       res => {
         console.log('Retorno da requisição de recuperar detalhes dos dispositivos: ' + JSON.stringify(res));
         this.devices = res;
-        this.currentDevice = this.devices[0];
+        if(this.devices.length > 0){
+          this.currentDevice = this.devices[0];
+        }
       }, errorObject => {
         console.log(errorObject.error);
       }
@@ -94,7 +96,12 @@ export class HomeComponent implements OnInit {
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
-        this.homeService.openChart(res, this.currentDevice.description);
+        if(this.currentDevice !== undefined){
+          this.homeService.openChart(res, this.currentDevice.description);
+        } else {
+          this.homeService.openChart(res);
+        }
+        
         if(res.dataPoints.length == 0){
           this.emptyChartData = true;
         }
