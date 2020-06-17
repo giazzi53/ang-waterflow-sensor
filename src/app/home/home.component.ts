@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   chartOpen = false;
   person: Person;
   interval;
+  isDisconnected: boolean = false;
+  oldChart: ChartView;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
   devices: Device[];
@@ -105,6 +107,13 @@ export class HomeComponent implements OnInit {
 
         if(res.dataPoints.length == 0){
           this.emptyChartData = true;
+        }
+
+        if(chartId == '4'){
+          if(this.oldChart != undefined && JSON.stringify(this.oldChart.dataPoints) === JSON.stringify(res.dataPoints)){
+            this.isDisconnected = true;
+          }
+          this.oldChart = res;
         }
       }, errorObject => {
         console.log(errorObject.error);
