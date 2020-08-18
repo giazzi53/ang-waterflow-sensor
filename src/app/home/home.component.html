@@ -13,13 +13,13 @@
     <div class="mean-weekday-wrapper col-md-5">
         <mat-card class="box chart-card">
             <mat-card-content>
-                <div id="mean-weekday-chart" style="height: 20.5em;"></div>
+                <div id="mean-weekday-chart" style="height: 22.5em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
 
     <div class="device-wrapper">
-        <mat-card class="box device-card col-md-12" style="height: 22.7em;">
+        <mat-card class="box device-card col-md-12" style="height: 24.7em;">
             <div class="a" *ngIf="devices !== undefined && devices.length !== 0">
                 <span class="material-icons arrow_back" (click)="openPreviousDevice()">arrow_back</span>
                 <span class="material-icons arrow_forward" (click)="openNextDevice()">arrow_forward</span>
@@ -52,7 +52,7 @@
         <mat-card class="box chart-card live-wrapper-card">
            <span>Disconnected: {{ isDisconnected }} !!!</span>
             <mat-card-content>
-                <div id="live-chart" style="height: 20.5em;"></div>
+                <div id="live-chart" style="height: 21em;"></div>
             </mat-card-content>
         </mat-card>
     </div>
