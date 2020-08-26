@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   chartOpen = false;
   person: Person;
   interval;
-  isDisconnected: boolean = false;
+  lastDeviceIndex: number = 0;
+  isConnected: boolean = true;
   oldChart: ChartView;
   username: string = localStorage.getItem('username');
   chartViewCards: FixedChartViewCard[];
@@ -85,7 +86,7 @@ export class HomeComponent implements OnInit {
         console.log('Retorno da requisição de recuperar detalhes dos dispositivos: ' + JSON.stringify(res));
         this.devices = res;
         if(this.devices.length > 0){
-          this.currentDevice = this.devices[0];
+          this.currentDevice = this.devices[this.lastDeviceIndex];
         }
         this.getFixedChartViewCards();
       }, errorObject => {
@@ -110,10 +111,7 @@ export class HomeComponent implements OnInit {
         }
 
         if(chartId == '4'){
-          if(this.oldChart != undefined && JSON.stringify(this.oldChart.dataPoints) === JSON.stringify(res.dataPoints)){
-            this.isDisconnected = true;
-          }
-          this.oldChart = res;
+          this.isConnected = res.connectedDevice
         }
       }, errorObject => {
         console.log(errorObject.error);
@@ -127,19 +125,21 @@ export class HomeComponent implements OnInit {
   
   openPreviousDevice(){
     if(this.devices.indexOf(this.currentDevice) === 0){
-      this.currentDevice = this.devices[this.devices.length - 1];
+      this.lastDeviceIndex = this.devices.length - 1;
     } else {
-      this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) - 1];
+      this.lastDeviceIndex = this.devices.indexOf(this.currentDevice) - 1;
     }
+    this.currentDevice = this.devices[this.lastDeviceIndex]
     this.openChart('4', this.currentDevice.deviceId);
   }
 
   openNextDevice(){
     if(this.devices.indexOf(this.currentDevice) === this.devices.length - 1){
-      this.currentDevice = this.devices[0];
+      this.lastDeviceIndex = 0
     } else {
-      this.currentDevice = this.devices[this.devices.indexOf(this.currentDevice) + 1];
+      this.lastDeviceIndex = this.devices.indexOf(this.currentDevice) + 1
     }
+    this.currentDevice = this.devices[this.lastDeviceIndex];
     this.openChart('4', this.currentDevice.deviceId);
   }
 
