@@ -65,6 +65,29 @@
     text-align: center;
 }
 
+.device-status {
+    color: #f8f9fa;
+    font-size: 1.3em;
+}
+
+.device-status-title {
+    margin-left: 6em;
+}
+
+.connected-icon, .disconnected-icon {
+    font-size: 2em;
+    margin-right: 4.5em;
+    margin-top: -0.2em;
+}
+
+.connected-icon {
+    color: rgb(15, 203, 15);
+}
+
+.disconnected-icon {
+    color: red;
+}
+
 .device-box {
     float: right;
 }
@@ -78,6 +101,10 @@
 
 .profile {
     margin-right: 6.5em;
+}
+
+.device-status-wrapper {
+    display: inline;
 }
 
 .empty-devices {
@@ -175,6 +202,14 @@
     .live-wrapper {
         padding: 0;
         padding-top: 0.2em;
+    }
+
+    .device-status-title {
+        margin-left: -0.5em;
+    }
+
+    .connected-icon, .disconnected-icon {
+        margin-right: 0em;
     }
 
     .live-wrapper-card {

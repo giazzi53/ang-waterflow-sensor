@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
         }
 
         if(chartId == '4'){
-          this.isConnected = res.connectedDevice
+          this.isConnected = res.connectedDevice;
         }
       }, errorObject => {
         console.log(errorObject.error);

@@ -50,10 +50,18 @@
 
     <div class="live-wrapper col-md-5">
         <mat-card class="box chart-card live-wrapper-card">
-           <span>Is connected: {{ isConnected }} !!!</span>
             <mat-card-content>
-                <div id="live-chart" style="height: 21em;"></div>
+                <div id="live-chart" style="height: 19.8em;"></div>
             </mat-card-content>
+            <span class="device-status device-status-title">Status do dispositivo: </span>
+            <div *ngIf="isConnected === true" class="device-status-wrapper">
+                <span class="material-icons connected-icon">check_box</span>
+                <span class="device-status">Conectado</span>
+            </div>
+            <div *ngIf="isConnected === false" class="device-status-wrapper">
+                <span class="material-icons disconnected-icon">cancel</span>
+                <span class="device-status">Desconectado</span>
+            </div>
         </mat-card>
     </div>
 </div>
