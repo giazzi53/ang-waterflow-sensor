@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
         console.log('Retorno da requisição de recuperar cards dos gráficos das visões: ' + JSON.stringify(res));
         this.chartViewCards = res;
         this.chartViewCards.forEach(chartViewCard => {
-          this.openChart(chartViewCard.chartId, this.currentDevice.deviceId);
+          this.openChart(chartViewCard.chartId, this.currentDevice.deviceId, 'refresh');
         });
         if(this.onlyOnce == true){
           this.updateData();
@@ -95,8 +95,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChart(chartId: string, deviceId: string) {
-    this.homeService.getChartView(chartId, this.username, deviceId)
+  openChart(chartId: string, deviceId: string, incomingSource: string) {
+    this.homeService.getChartView(chartId, this.username, incomingSource, deviceId)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar gráfico: ' + JSON.stringify(res));
@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
       this.lastDeviceIndex = this.devices.indexOf(this.currentDevice) - 1;
     }
     this.currentDevice = this.devices[this.lastDeviceIndex]
-    this.openChart('4', this.currentDevice.deviceId);
+    this.openChart('4', this.currentDevice.deviceId, 'arrows');
   }
 
   openNextDevice(){
@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
       this.lastDeviceIndex = this.devices.indexOf(this.currentDevice) + 1
     }
     this.currentDevice = this.devices[this.lastDeviceIndex];
-    this.openChart('4', this.currentDevice.deviceId);
+    this.openChart('4', this.currentDevice.deviceId, 'arrows');
   }
 
   toLogin() {

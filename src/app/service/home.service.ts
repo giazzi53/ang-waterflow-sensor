@@ -55,18 +55,20 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getChartView(chartId: string, username: string, deviceId?: string){
+  getChartView(chartId: string, username: string, incomingSource: string, deviceId?: string){
     const url = `${environment.personBaseUrl}/getChartView`;
     const httpOptions = {
       headers: new HttpHeaders({
         'chartId': chartId,
         'deviceId': deviceId,
-        'username': username
+        'username': username,
+        'incomingSource': incomingSource
       })
     };
 
     console.log("Requisição para recuperar gráfico. ChartId: " + httpOptions.headers.get('chartId') +
-     ". DeviceId: " + httpOptions.headers.get('deviceId') + ". Usuário: " + httpOptions.headers.get('username'));
+     ". DeviceId: " + httpOptions.headers.get('deviceId') + ". Usuário: " + httpOptions.headers.get('username') +
+     ". IncomingSource: " + httpOptions.headers.get('incomingSource'));
     return this.http.get<any>(url, httpOptions);
   }
 
