@@ -2,9 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from 'src/app/interfaces/person';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoginService } from 'src/app/service/login.service';
+import { AuthService } from 'src/app/service/auth.service';
 import { SessionService } from 'src/app/service/session.service';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
   
     @Input() person: Person = <Person>{};
     @Output() id: EventEmitter<string> = new EventEmitter();
-    constructor(private authService: LoginService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { }
+    constructor(private authService: AuthService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { }
   
     ngOnInit() {
       // if(this.sessionService.getUserLogged() != null){

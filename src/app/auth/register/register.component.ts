@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RegisterService } from 'src/app/service/register.service';
+import { AuthService } from 'src/app/service/auth.service';
 import { Person } from 'src/app/interfaces/person';
 import { Gender } from 'src/app/interfaces/gender';
 import { Region } from 'src/app/interfaces/region';
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     { value: 'UNINFORMED', viewValue: 'Não informar' }
   ];
 
-  constructor(private registerService: RegisterService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { 
+  constructor(private authService: AuthService, private sessionService: SessionService, private router: Router, private snackbar: MatSnackBar) { 
     this.userForm = this.createUser();
   }
 
@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.person = this.userForm.value;
-    this.registerService.register(this.person).subscribe(
+    this.authService.register(this.person).subscribe(
      res => {
         // this.loading = false;
         this.sessionService.saveUserLogged(this.person.username);

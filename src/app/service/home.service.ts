@@ -16,8 +16,10 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  getUserData(username: string) {
-    const url = `${environment.personBaseUrl}/getUserData`;
+  private baseRoute: string = '/v1/home';
+
+  public getUserData(username: string) {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/user-data`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
@@ -27,14 +29,14 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getFixedChartViewCards() : Observable<any> {
-    const url = `${environment.personBaseUrl}/getFixedChartViewCards`;
+  public getFixedChartViewCards(): Observable<any> {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/fixed-chart-view-cards`;
     console.log("Requisição para recuperar cards dos gráficos das visões recebida");
     return this.http.get<any>(url);
   }
 
-  getDeviceCards(username: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/getDeviceCards`;
+  public getDeviceCards(username: string) : Observable<any> {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/device-cards`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
@@ -44,8 +46,8 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getDeviceDetails(username: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/getDeviceDetails`;
+  public getDeviceDetails(username: string): Observable<any> {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/device-details`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
@@ -55,8 +57,8 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getChartView(chartId: string, username: string, incomingSource: string, deviceId?: string){
-    const url = `${environment.personBaseUrl}/getChartView`;
+  public getChartView(chartId: string, username: string, incomingSource: string, deviceId?: string){
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/chart-view`;
     const httpOptions = {
       headers: new HttpHeaders({
         'chartId': chartId,
@@ -72,7 +74,7 @@ export class HomeService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  openChart(chart: ChartView, selectedDevice?: string){
+  public openChart(chart: ChartView, selectedDevice?: string){
     let createdChart;
     if(chart.chartId == '1') {
       let pieChart = new PieChart();

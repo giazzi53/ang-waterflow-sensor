@@ -8,12 +8,14 @@ import { Person } from '../interfaces/person';
   providedIn: 'root'
 })
 
-export class LoginService {
+export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/login`;
+  private baseRoute: string = '/v1/auth';
+
+  public login(username: string, password: string) : Observable<any> {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/login`;
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -27,5 +29,11 @@ export class LoginService {
     };
     console.log("Requisição para login recebida. Usuário: " + httpOptions.headers.get('username'), "Senha: "+ httpOptions.headers.get('password'));
     return this.http.get<Person>(url, httpOptions);
+  }
+
+  public register(person: Person): Observable<Person> {
+    const url = `${environment.personBaseUrl}/${this.baseRoute}/register`;
+    console.log('Requisição para cadastro: ' + JSON.stringify(person));
+    return this.http.post<Person>(url, person);
   }
 }
