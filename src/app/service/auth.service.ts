@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private baseRoute: string = '/v1/auth';
+  private baseRoute: string = 'v1/auth';
 
   public login(username: string, password: string) : Observable<any> {
     const url = `${environment.personBaseUrl}/${this.baseRoute}/login`;

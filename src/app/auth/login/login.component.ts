@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
         .subscribe(
           res => {
             this.loading = false;
-            // this.sessionService.saveUserLogged(res.username);
-            this.sessionService.saveUserLogged(this.person.username);
+            this.sessionService.saveUserLogged(res.username);
+            // this.sessionService.saveUserLogged(this.person.username);
             this.router.navigate(['home']);
           }, errorObject => {
             this.loading = false;
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
                 panelClass: ['error-snackbar']
               });
             } else {
-              this.snackbar.open(errorObject.error, 'Dismiss', {
+              this.snackbar.open(errorObject.message, 'Dismiss', {
                 duration: 3000,
                 panelClass: ['error-snackbar']
               });

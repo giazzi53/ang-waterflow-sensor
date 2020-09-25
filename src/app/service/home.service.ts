@@ -16,27 +16,29 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  private baseRoute: string = '/v1/home';
+  private baseUserRoute: string = 'v1/users';
+  private baseChartRoute: string = 'v1/chart';
 
   public getUserData(username: string) {
-    const url = `${environment.personBaseUrl}/${this.baseRoute}/user-data`;
+    const url = `${environment.personBaseUrl}/${this.baseUserRoute}/profile-data`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
       })
     };
+
     console.log("Requisição para recuperar dados do usuário: " + httpOptions.headers.get('username'));
     return this.http.get<any>(url, httpOptions);
   }
 
   public getFixedChartViewCards(): Observable<any> {
-    const url = `${environment.personBaseUrl}/${this.baseRoute}/fixed-chart-view-cards`;
+    const url = `${environment.personBaseUrl}/${this.baseChartRoute}/fixed-chart-view-cards`;
     console.log("Requisição para recuperar cards dos gráficos das visões recebida");
     return this.http.get<any>(url);
   }
 
   public getDeviceCards(username: string) : Observable<any> {
-    const url = `${environment.personBaseUrl}/${this.baseRoute}/device-cards`;
+    const url = `${environment.personBaseUrl}/${this.baseChartRoute}/device-cards`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
@@ -47,7 +49,7 @@ export class HomeService {
   }
 
   public getDeviceDetails(username: string): Observable<any> {
-    const url = `${environment.personBaseUrl}/${this.baseRoute}/device-details`;
+    const url = `${environment.personBaseUrl}/${this.baseChartRoute}/device-details`;
     const httpOptions = {
       headers: new HttpHeaders({
         'username': username
@@ -58,7 +60,7 @@ export class HomeService {
   }
 
   public getChartView(chartId: string, username: string, incomingSource: string, deviceId?: string){
-    const url = `${environment.personBaseUrl}/${this.baseRoute}/chart-view`;
+    const url = `${environment.personBaseUrl}/${this.baseChartRoute}/chart-view`;
     const httpOptions = {
       headers: new HttpHeaders({
         'chartId': chartId,
