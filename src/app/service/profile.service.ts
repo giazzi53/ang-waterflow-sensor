@@ -11,21 +11,23 @@ export class ProfileService {
   
     constructor(private http: HttpClient) { }
 
-    retrieveProfileData(username: string): Observable<Person> {
-      const url = `${environment.personBaseUrl}/retrieveProfileData`;
+    private baseUserRoute: string = 'v1/users';
+
+    public getUserData(username: string) {
+      const url = `${environment.personBaseUrl}/${this.baseUserRoute}/profile-data`;
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type':  'application/json',
           'username': username
         })
       };
-      console.log('Requisição para recuperar dados completos do perfil: ' + httpOptions.headers.get('username'));
-      return this.http.get<Person>(url, httpOptions);
+  
+      console.log("Requisição para recuperar dados do usuário: " + httpOptions.headers.get('username'));
+      return this.http.get<any>(url, httpOptions);
     }
 
-    update(person: Person, currentUsername: string): Observable<Person> {
-      const url = `${environment.personBaseUrl}/updateProfile/`;
+    public update(person: Person, currentUsername: string): Observable<Person> {
+      const url = `${environment.personBaseUrl}/${this.baseUserRoute}/profile/${currentUsername}`;
       console.log('Requisição para atualizar dados do perfil do usuário ' + currentUsername + ': ' + JSON.stringify(person));
-      return this.http.put<Person>(url+currentUsername, person);
+      return this.http.put<Person>(url, person);
     }
 }

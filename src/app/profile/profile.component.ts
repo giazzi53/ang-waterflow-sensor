@@ -41,16 +41,12 @@ export class ProfileComponent implements OnInit {
   @Input() person: Person = <Person>{};
 
   retrieveProfileData(){
-    this.profileService.retrieveProfileData(localStorage.getItem('username')).subscribe(
+    this.profileService.getUserData(localStorage.getItem('username')).subscribe(
       res => {
-        // this.loading = false;
-        // this.sessionService.saveUserLogged(this.person.username);
-        // this.router.navigate(['home']);
         this.user = res;
         console.log('user is ' + JSON.stringify(this.user));
         console.log(1111)
       }, errorObject => {
-        // this.loading = false;
         console.log(errorObject.error);
         this.snackbar.open(errorObject.error, 'Dismiss', {
           duration: 2000,
@@ -77,11 +73,9 @@ export class ProfileComponent implements OnInit {
     this.person._id = this.user._id;
     this.profileService.update(this.person, localStorage.getItem('username')).subscribe(
      res => {
-        // this.loading = false;
         this.sessionService.saveUserLogged(this.person.username);
         this.router.navigate(['home']);
       }, errorObject => {
-        // this.loading = false;
         console.log(errorObject.error);
         this.snackbar.open(errorObject.error, 'Dismiss', {
           duration: 2000,

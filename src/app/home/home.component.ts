@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { Person } from '../interfaces/person';
 import { SessionService } from '../service/session.service';
+import { ProfileService } from '../service/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,8 @@ export class HomeComponent implements OnInit {
   emptyChartData: boolean = false;
   onlyOnce: boolean = true;
 
-  constructor(private homeService: HomeService, private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
+  constructor(private homeService: HomeService, private profileService: ProfileService,
+     private sessionService: SessionService, private router: Router, public dialog: MatDialog) {
     this.getUserData(this.username);
     this.getDeviceDetails(this.username);
   }
@@ -41,7 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   getUserData(username: string){
-    this.homeService.getUserData(username)
+    this.profileService.getUserData(username)
     .subscribe(
       res => {
         console.log('Retorno da requisição de recuperar dados do usuário: ' + JSON.stringify(res));

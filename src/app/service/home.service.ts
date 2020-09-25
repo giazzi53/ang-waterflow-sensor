@@ -16,20 +16,7 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUserRoute: string = 'v1/users';
   private baseChartRoute: string = 'v1/chart';
-
-  public getUserData(username: string) {
-    const url = `${environment.personBaseUrl}/${this.baseUserRoute}/profile-data`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'username': username
-      })
-    };
-
-    console.log("Requisição para recuperar dados do usuário: " + httpOptions.headers.get('username'));
-    return this.http.get<any>(url, httpOptions);
-  }
 
   public getFixedChartViewCards(): Observable<any> {
     const url = `${environment.personBaseUrl}/${this.baseChartRoute}/fixed-chart-view-cards`;

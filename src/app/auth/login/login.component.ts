@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
                 panelClass: ['error-snackbar']
               });
             } else {
-              this.snackbar.open(errorObject.message, 'Dismiss', {
+              this.snackbar.open(errorObject.error, 'Dismiss', {
                 duration: 3000,
                 panelClass: ['error-snackbar']
               });
